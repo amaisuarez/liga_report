@@ -1,0 +1,27 @@
+[00:59:12] Discovering files in /Users/amaisuarez/Desktop/futdata
+[00:59:13] Eligible targets: ['goals', 'shots', 'sot', 'corners', 'fouls', 'yellows', 'reds', 'ht_goals']
+[00:59:13] [goals] tuning on validation ['2023/24']
+[00:59:42] [goals] walk-forward backtest ['2023/24', '2024/25', '2025/26', '2026/27']
+[00:59:58] [goals] done in 44s
+[00:59:59] [shots] tuning on validation ['2023/24']
+[01:00:29] [shots] walk-forward backtest ['2023/24', '2024/25', '2025/26', '2026/27']
+[01:00:39] [shots] done in 41s
+[01:00:40] [sot] tuning on validation ['2023/24']
+[01:01:09] [sot] walk-forward backtest ['2023/24', '2024/25', '2025/26', '2026/27']
+[01:01:20] [sot] done in 39s
+[01:01:20] [corners] tuning on validation ['2023/24']
+[01:01:50] [corners] walk-forward backtest ['2023/24', '2024/25', '2025/26', '2026/27']
+[01:02:00] [corners] done in 40s
+[01:02:01] [fouls] tuning on validation ['2023/24']
+[01:02:29] [fouls] walk-forward backtest ['2023/24', '2024/25', '2025/26', '2026/27']
+[01:02:39] [fouls] done in 38s
+[01:02:40] [yellows] tuning on validation ['2023/24']
+[01:03:08] [yellows] walk-forward backtest ['2023/24', '2024/25', '2025/26', '2026/27']
+[01:03:19] [yellows] done in 39s
+[01:03:20] [reds] tuning on validation ['2023/24']
+[01:03:47] [reds] walk-forward backtest ['2023/24', '2024/25', '2025/26', '2026/27']
+[01:03:57] [reds] done in 38s
+[01:03:58] [ht_goals] tuning on validation ['2023/24']
+[01:04:28] [ht_goals] walk-forward backtest ['2023/24', '2024/25', '2025/26', '2026/27']
+[01:04:38] [ht_goals] done in 40s
+[01:04:40] Wrote /Users/amaisuarez/Desktop/futdata/app/data.js (1.78 MB) and reports in /Users/amaisuarez/Desktop/futdata/output

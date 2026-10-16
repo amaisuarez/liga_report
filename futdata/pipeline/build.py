@@ -344,7 +344,33 @@ def main():
         fh.write(";\n")
     from . import reports
     reports.write_all(data, OUT)
+    write_pages_site()
     log(f"Wrote {os.path.join(APP, 'data.js')} ({os.path.getsize(os.path.join(APP, 'data.js')) / 1e6:.2f} MB) and reports in {OUT}")
+
+
+PAGES_HEAD = """<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+"""
+
+
+def write_pages_site():
+    """docs/ = standalone copy of app/ for GitHub Pages (Settings > Pages > branch main, folder /docs).
+    app/index.html omits the document head because the artifact host adds one; Pages needs it."""
+    import shutil
+    docs = os.path.join(ROOT, "docs")
+    os.makedirs(docs, exist_ok=True)
+    with open(os.path.join(APP, "index.html"), encoding="utf-8") as fh:
+        body = fh.read()
+    head, rest = body.split("</style>", 1)
+    with open(os.path.join(docs, "index.html"), "w", encoding="utf-8") as fh:
+        fh.write(PAGES_HEAD + head + "</style>\n</head>\n<body>" + rest + "</body>\n</html>\n")
+    for f in ("app.js", "ui.js", "data.js"):
+        shutil.copyfile(os.path.join(APP, f), os.path.join(docs, f))
+    open(os.path.join(docs, ".nojekyll"), "w").close()
 
 
 def _json_default(o):

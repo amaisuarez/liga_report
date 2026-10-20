@@ -1,0 +1,51 @@
+{
+  "_doc": "Canonical team identities. 'aliases' are raw spellings that map to the team with certainty. Unknown raw names are NOT merged automatically: they get a provisional id and are listed for manual confirmation in output/data_quality.md. 'confirmed_distinct' records similar-looking names that a person has confirmed are different clubs.",
+  "competitions": {
+    "SP1": {"name": "LaLiga (Spain, 1st division)", "country": "Spain", "tier": 1},
+    "SP2": {"name": "Segunda (Spain, 2nd division)", "country": "Spain", "tier": 2}
+  },
+  "teams": {
+    "alaves":       {"display": "Alavés",            "aliases": ["Alaves", "Deportivo Alaves"]},
+    "almeria":      {"display": "Almería",           "aliases": ["Almeria", "UD Almeria"]},
+    "ath-bilbao":   {"display": "Athletic Club",     "aliases": ["Ath Bilbao", "Athletic Bilbao", "Athletic Club"]},
+    "ath-madrid":   {"display": "Atlético Madrid",   "aliases": ["Ath Madrid", "Atletico Madrid", "Atl Madrid"]},
+    "barcelona":    {"display": "Barcelona",         "aliases": ["Barcelona", "FC Barcelona"]},
+    "betis":        {"display": "Real Betis",        "aliases": ["Betis", "Real Betis"]},
+    "cadiz":        {"display": "Cádiz",             "aliases": ["Cadiz"]},
+    "celta":        {"display": "Celta Vigo",        "aliases": ["Celta", "Celta Vigo"]},
+    "elche":        {"display": "Elche",             "aliases": ["Elche"]},
+    "espanyol":     {"display": "Espanyol",          "aliases": ["Espanol", "Espanyol"]},
+    "getafe":       {"display": "Getafe",            "aliases": ["Getafe"]},
+    "girona":       {"display": "Girona",            "aliases": ["Girona"]},
+    "granada":      {"display": "Granada",           "aliases": ["Granada"]},
+    "la-coruna":    {"display": "Deportivo La Coruña","aliases": ["La Coruna", "Deportivo La Coruna", "Dep La Coruna"]},
+    "las-palmas":   {"display": "Las Palmas",        "aliases": ["Las Palmas"]},
+    "leganes":      {"display": "Leganés",           "aliases": ["Leganes"]},
+    "levante":      {"display": "Levante",           "aliases": ["Levante"]},
+    "malaga":       {"display": "Málaga",            "aliases": ["Malaga"]},
+    "mallorca":     {"display": "Mallorca",          "aliases": ["Mallorca"]},
+    "osasuna":      {"display": "Osasuna",           "aliases": ["Osasuna"]},
+    "oviedo":       {"display": "Real Oviedo",       "aliases": ["Oviedo", "Real Oviedo"]},
+    "real-madrid":  {"display": "Real Madrid",       "aliases": ["Real Madrid"]},
+    "santander":    {"display": "Racing Santander",  "aliases": ["Santander", "Racing Santander"]},
+    "sevilla":      {"display": "Sevilla",           "aliases": ["Sevilla"]},
+    "sociedad":     {"display": "Real Sociedad",     "aliases": ["Sociedad", "Real Sociedad"]},
+    "valencia":     {"display": "Valencia",          "aliases": ["Valencia"]},
+    "valladolid":   {"display": "Valladolid",        "aliases": ["Valladolid"]},
+    "vallecano":    {"display": "Rayo Vallecano",    "aliases": ["Vallecano", "Rayo Vallecano"]},
+    "villarreal":   {"display": "Villarreal",        "aliases": ["Villarreal"]}
+  },
+  "confirmed_distinct": [
+    ["Ath Madrid", "Ath Bilbao"],
+    ["Ath Madrid", "Real Madrid"],
+    ["Real Madrid", "Real Oviedo"],
+    ["Sociedad", "Real Sociedad B"],
+    ["Valencia", "Valladolid"],
+    ["Villarreal", "Vallecano"],
+    ["Mallorca", "Malaga"],
+    ["Las Palmas", "Leganes"],
+    ["Getafe", "Girona"],
+    ["Alaves", "Almeria"],
+    ["Celta", "Elche"]
+  ]
+}

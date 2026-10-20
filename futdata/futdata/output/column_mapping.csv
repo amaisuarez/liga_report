@@ -1,0 +1,679 @@
+file,column,normalized,documentation,description,non_null,missing,numeric
+SP1-2.csv,Div,competition,documented,League Division,380,0,False
+SP1-2.csv,Date,date,documented,Match Date (dd/mm/yy),380,0,False
+SP1-2.csv,Time,kickoff,documented,Time of match kick off,380,0,False
+SP1-2.csv,HomeTeam,home_team_raw,documented,Home Team,380,0,False
+SP1-2.csv,AwayTeam,away_team_raw,documented,Away Team,380,0,False
+SP1-2.csv,FTHG,home_goals,documented,Full Time Home Team Goals,380,0,True
+SP1-2.csv,FTAG,away_goals,documented,Full Time Away Team Goals,380,0,True
+SP1-2.csv,FTR,result,documented,"Full Time Result (H=Home Win, D=Draw, A=Away Win)",380,0,False
+SP1-2.csv,HTHG,ht_home_goals,documented,Half Time Home Team Goals,380,0,True
+SP1-2.csv,HTAG,ht_away_goals,documented,Half Time Away Team Goals,380,0,True
+SP1-2.csv,HTR,ht_result,documented,"Half Time Result (H=Home Win, D=Draw, A=Away Win)",380,0,False
+SP1-2.csv,HS,home_shots,documented,Home Team Shots,380,0,True
+SP1-2.csv,AS,away_shots,documented,Away Team Shots,380,0,True
+SP1-2.csv,HST,home_sot,documented,Home Team Shots on Target,380,0,True
+SP1-2.csv,AST,away_sot,documented,Away Team Shots on Target,380,0,True
+SP1-2.csv,HF,home_fouls,documented,Home Team Fouls Committed,380,0,True
+SP1-2.csv,AF,away_fouls,documented,Away Team Fouls Committed,380,0,True
+SP1-2.csv,HC,home_corners,documented,Home Team Corners,380,0,True
+SP1-2.csv,AC,away_corners,documented,Away Team Corners,380,0,True
+SP1-2.csv,HY,home_yellows,documented,Home Team Yellow Cards,380,0,True
+SP1-2.csv,AY,away_yellows,documented,Away Team Yellow Cards,380,0,True
+SP1-2.csv,HR,home_reds,documented,Home Team Red Cards,380,0,True
+SP1-2.csv,AR,away_reds,documented,Away Team Red Cards,380,0,True
+SP1-2.csv,B365H,,documented,Bet365 home win odds,380,0,True
+SP1-2.csv,B365D,,documented,Bet365 draw odds,380,0,True
+SP1-2.csv,B365A,,documented,Bet365 away win odds,380,0,True
+SP1-2.csv,BFDH,,documented,Betfred home win odds,379,1,True
+SP1-2.csv,BFDD,,documented,Betfred draw odds,379,1,True
+SP1-2.csv,BFDA,,documented,Betfred away win odds,379,1,True
+SP1-2.csv,BMGMH,,documented,BetMGM home win odds,378,2,True
+SP1-2.csv,BMGMD,,documented,BetMGM draw odds,378,2,True
+SP1-2.csv,BMGMA,,documented,BetMGM away win odds,378,2,True
+SP1-2.csv,BVH,,documented,Betvictor home win odds,378,2,True
+SP1-2.csv,BVD,,documented,Betvictor draw odds,378,2,True
+SP1-2.csv,BVA,,documented,Betvictor away win odds,378,2,True
+SP1-2.csv,BWH,,documented,Bet&Win home win odds,379,1,True
+SP1-2.csv,BWD,,documented,Bet&Win draw odds,379,1,True
+SP1-2.csv,BWA,,documented,Bet&Win away win odds,379,1,True
+SP1-2.csv,CLH,,documented,Coral home win odds,282,98,True
+SP1-2.csv,CLD,,documented,Coral draw odds,282,98,True
+SP1-2.csv,CLA,,documented,Coral away win odds,282,98,True
+SP1-2.csv,LBH,,documented,Ladbrokes home win odds,291,89,True
+SP1-2.csv,LBD,,documented,Ladbrokes draw odds,291,89,True
+SP1-2.csv,LBA,,documented,Ladbrokes away win odds,291,89,True
+SP1-2.csv,PSH,,documented,Pinnacle home win odds,189,191,True
+SP1-2.csv,PSD,,documented,Pinnacle draw odds,189,191,True
+SP1-2.csv,PSA,,documented,Pinnacle away win odds,189,191,True
+SP1-2.csv,MaxH,,documented,Market maximum home win odds,380,0,True
+SP1-2.csv,MaxD,,documented,Market maximum draw win odds,380,0,True
+SP1-2.csv,MaxA,,documented,Market maximum away win odds,380,0,True
+SP1-2.csv,AvgH,mkt_avg_odds_home,documented,Market average home win odds,380,0,True
+SP1-2.csv,AvgD,mkt_avg_odds_draw,documented,Market average draw win odds,380,0,True
+SP1-2.csv,AvgA,mkt_avg_odds_away,documented,Market average away win odds,380,0,True
+SP1-2.csv,BFEH,,documented,Betfair Exchange home win odds,350,30,True
+SP1-2.csv,BFED,,documented,Betfair Exchange draw odds,350,30,True
+SP1-2.csv,BFEA,,documented,Betfair Exchange away win odds,350,30,True
+SP1-2.csv,B365>2.5,,documented,Bet365 over 2.5 goals,380,0,True
+SP1-2.csv,B365<2.5,,documented,Bet365 under 2.5 goals,380,0,True
+SP1-2.csv,P>2.5,,documented,Pinnacle over 2.5 goals,188,192,True
+SP1-2.csv,P<2.5,,documented,Pinnacle under 2.5 goals,188,192,True
+SP1-2.csv,Max>2.5,,documented,Market maximum over 2.5 goals,380,0,True
+SP1-2.csv,Max<2.5,,documented,Market maximum under 2.5 goals,380,0,True
+SP1-2.csv,Avg>2.5,mkt_avg_odds_over25,documented,Market average over 2.5 goals,380,0,True
+SP1-2.csv,Avg<2.5,mkt_avg_odds_under25,documented,Market average under 2.5 goals,380,0,True
+SP1-2.csv,BFE>2.5,,inferred_pattern,"Betfair Exchange over 2.5 goals (pattern inferred, not listed in notes.txt)",350,30,True
+SP1-2.csv,BFE<2.5,,inferred_pattern,"Betfair Exchange under 2.5 goals (pattern inferred, not listed in notes.txt)",350,30,True
+SP1-2.csv,AHh,,documented,Market size of handicap (home team) (since 2019/2020),376,4,True
+SP1-2.csv,B365AHH,,documented,Bet365 Asian handicap home team odds,380,0,True
+SP1-2.csv,B365AHA,,documented,Bet365 Asian handicap away team odds,380,0,True
+SP1-2.csv,PAHH,,documented,Pinnacle Asian handicap home team odds,189,191,True
+SP1-2.csv,PAHA,,documented,Pinnacle Asian handicap away team odds,189,191,True
+SP1-2.csv,MaxAHH,,documented,Market maximum Asian handicap home team odds,380,0,True
+SP1-2.csv,MaxAHA,,documented,Market maximum Asian handicap away team odds,380,0,True
+SP1-2.csv,AvgAHH,,documented,Market average Asian handicap home team odds,380,0,True
+SP1-2.csv,AvgAHA,,documented,Market average Asian handicap away team odds,380,0,True
+SP1-2.csv,BFEAHH,,inferred_pattern,"Betfair Exchange Asian handicap home team odds (pattern inferred, not listed in notes.txt)",350,30,True
+SP1-2.csv,BFEAHA,,inferred_pattern,"Betfair Exchange Asian handicap away team odds (pattern inferred, not listed in notes.txt)",350,30,True
+SP1-2.csv,B365CH,,documented_rule,Closing odds: Bet365 home win odds,380,0,True
+SP1-2.csv,B365CD,,documented_rule,Closing odds: Bet365 draw odds,380,0,True
+SP1-2.csv,B365CA,,documented_rule,Closing odds: Bet365 away win odds,380,0,True
+SP1-2.csv,BFDCH,,documented_rule,Closing odds: Betfred home win odds,373,7,True
+SP1-2.csv,BFDCD,,documented_rule,Closing odds: Betfred draw odds,373,7,True
+SP1-2.csv,BFDCA,,documented_rule,Closing odds: Betfred away win odds,373,7,True
+SP1-2.csv,BMGMCH,,documented_rule,Closing odds: BetMGM home win odds,379,1,True
+SP1-2.csv,BMGMCD,,documented_rule,Closing odds: BetMGM draw odds,379,1,True
+SP1-2.csv,BMGMCA,,documented_rule,Closing odds: BetMGM away win odds,379,1,True
+SP1-2.csv,BVCH,,documented_rule,Closing odds: Betvictor home win odds,372,8,True
+SP1-2.csv,BVCD,,documented_rule,Closing odds: Betvictor draw odds,372,8,True
+SP1-2.csv,BVCA,,documented_rule,Closing odds: Betvictor away win odds,372,8,True
+SP1-2.csv,BWCH,,documented_rule,Closing odds: Bet&Win home win odds,379,1,True
+SP1-2.csv,BWCD,,documented_rule,Closing odds: Bet&Win draw odds,379,1,True
+SP1-2.csv,BWCA,,documented_rule,Closing odds: Bet&Win away win odds,379,1,True
+SP1-2.csv,CLCH,,documented_rule,Closing odds: Coral home win odds,278,102,True
+SP1-2.csv,CLCD,,documented_rule,Closing odds: Coral draw odds,278,102,True
+SP1-2.csv,CLCA,,documented_rule,Closing odds: Coral away win odds,278,102,True
+SP1-2.csv,LBCH,,documented_rule,Closing odds: Ladbrokes home win odds,297,83,True
+SP1-2.csv,LBCD,,documented_rule,Closing odds: Ladbrokes draw odds,297,83,True
+SP1-2.csv,LBCA,,documented_rule,Closing odds: Ladbrokes away win odds,297,83,True
+SP1-2.csv,PSCH,,documented_rule,Closing odds: Pinnacle home win odds,188,192,True
+SP1-2.csv,PSCD,,documented_rule,Closing odds: Pinnacle draw odds,188,192,True
+SP1-2.csv,PSCA,,documented_rule,Closing odds: Pinnacle away win odds,188,192,True
+SP1-2.csv,MaxCH,,documented_rule,Closing odds: Market maximum home win odds,380,0,True
+SP1-2.csv,MaxCD,,documented_rule,Closing odds: Market maximum draw win odds,380,0,True
+SP1-2.csv,MaxCA,,documented_rule,Closing odds: Market maximum away win odds,380,0,True
+SP1-2.csv,AvgCH,,documented_rule,Closing odds: Market average home win odds,380,0,True
+SP1-2.csv,AvgCD,,documented_rule,Closing odds: Market average draw win odds,380,0,True
+SP1-2.csv,AvgCA,,documented_rule,Closing odds: Market average away win odds,380,0,True
+SP1-2.csv,BFECH,,documented_rule,Closing odds: Betfair Exchange home win odds,349,31,True
+SP1-2.csv,BFECD,,documented_rule,Closing odds: Betfair Exchange draw odds,349,31,True
+SP1-2.csv,BFECA,,documented_rule,Closing odds: Betfair Exchange away win odds,349,31,True
+SP1-2.csv,B365C>2.5,,documented_rule,Closing odds: Bet365 over 2.5 goals,380,0,True
+SP1-2.csv,B365C<2.5,,documented_rule,Closing odds: Bet365 under 2.5 goals,380,0,True
+SP1-2.csv,PC>2.5,,documented_rule,Closing odds: Pinnacle over 2.5 goals,189,191,True
+SP1-2.csv,PC<2.5,,documented_rule,Closing odds: Pinnacle under 2.5 goals,189,191,True
+SP1-2.csv,MaxC>2.5,,documented_rule,Closing odds: Market maximum over 2.5 goals,380,0,True
+SP1-2.csv,MaxC<2.5,,documented_rule,Closing odds: Market maximum under 2.5 goals,380,0,True
+SP1-2.csv,AvgC>2.5,,documented_rule,Closing odds: Market average over 2.5 goals,380,0,True
+SP1-2.csv,AvgC<2.5,,documented_rule,Closing odds: Market average under 2.5 goals,380,0,True
+SP1-2.csv,BFEC>2.5,,inferred_pattern,"Betfair Exchange closing over 2.5 goals (pattern inferred, not listed in notes.txt)",349,31,True
+SP1-2.csv,BFEC<2.5,,inferred_pattern,"Betfair Exchange closing under 2.5 goals (pattern inferred, not listed in notes.txt)",349,31,True
+SP1-2.csv,AHCh,,documented_rule,Closing odds: Market size of handicap (home team) (since 2019/2020),380,0,True
+SP1-2.csv,B365CAHH,,documented_rule,Closing odds: Bet365 Asian handicap home team odds,380,0,True
+SP1-2.csv,B365CAHA,,documented_rule,Closing odds: Bet365 Asian handicap away team odds,380,0,True
+SP1-2.csv,PCAHH,,documented_rule,Closing odds: Pinnacle Asian handicap home team odds,189,191,True
+SP1-2.csv,PCAHA,,documented_rule,Closing odds: Pinnacle Asian handicap away team odds,189,191,True
+SP1-2.csv,MaxCAHH,,documented_rule,Closing odds: Market maximum Asian handicap home team odds,380,0,True
+SP1-2.csv,MaxCAHA,,documented_rule,Closing odds: Market maximum Asian handicap away team odds,380,0,True
+SP1-2.csv,AvgCAHH,,documented_rule,Closing odds: Market average Asian handicap home team odds,380,0,True
+SP1-2.csv,AvgCAHA,,documented_rule,Closing odds: Market average Asian handicap away team odds,380,0,True
+SP1-2.csv,BFECAHH,,inferred_pattern,"Betfair Exchange closing Asian handicap home team odds (pattern inferred, not listed in notes.txt)",349,31,True
+SP1-2.csv,BFECAHA,,inferred_pattern,"Betfair Exchange closing Asian handicap away team odds (pattern inferred, not listed in notes.txt)",349,31,True
+SP1-3.csv,Div,competition,documented,League Division,380,0,False
+SP1-3.csv,Date,date,documented,Match Date (dd/mm/yy),380,0,False
+SP1-3.csv,Time,kickoff,documented,Time of match kick off,380,0,False
+SP1-3.csv,HomeTeam,home_team_raw,documented,Home Team,380,0,False
+SP1-3.csv,AwayTeam,away_team_raw,documented,Away Team,380,0,False
+SP1-3.csv,FTHG,home_goals,documented,Full Time Home Team Goals,380,0,True
+SP1-3.csv,FTAG,away_goals,documented,Full Time Away Team Goals,380,0,True
+SP1-3.csv,FTR,result,documented,"Full Time Result (H=Home Win, D=Draw, A=Away Win)",380,0,False
+SP1-3.csv,HTHG,ht_home_goals,documented,Half Time Home Team Goals,380,0,True
+SP1-3.csv,HTAG,ht_away_goals,documented,Half Time Away Team Goals,380,0,True
+SP1-3.csv,HTR,ht_result,documented,"Half Time Result (H=Home Win, D=Draw, A=Away Win)",380,0,False
+SP1-3.csv,HS,home_shots,documented,Home Team Shots,380,0,True
+SP1-3.csv,AS,away_shots,documented,Away Team Shots,380,0,True
+SP1-3.csv,HST,home_sot,documented,Home Team Shots on Target,380,0,True
+SP1-3.csv,AST,away_sot,documented,Away Team Shots on Target,380,0,True
+SP1-3.csv,HF,home_fouls,documented,Home Team Fouls Committed,380,0,True
+SP1-3.csv,AF,away_fouls,documented,Away Team Fouls Committed,380,0,True
+SP1-3.csv,HC,home_corners,documented,Home Team Corners,380,0,True
+SP1-3.csv,AC,away_corners,documented,Away Team Corners,380,0,True
+SP1-3.csv,HY,home_yellows,documented,Home Team Yellow Cards,380,0,True
+SP1-3.csv,AY,away_yellows,documented,Away Team Yellow Cards,380,0,True
+SP1-3.csv,HR,home_reds,documented,Home Team Red Cards,380,0,True
+SP1-3.csv,AR,away_reds,documented,Away Team Red Cards,380,0,True
+SP1-3.csv,B365H,,documented,Bet365 home win odds,380,0,True
+SP1-3.csv,B365D,,documented,Bet365 draw odds,380,0,True
+SP1-3.csv,B365A,,documented,Bet365 away win odds,380,0,True
+SP1-3.csv,BWH,,documented,Bet&Win home win odds,230,150,True
+SP1-3.csv,BWD,,documented,Bet&Win draw odds,230,150,True
+SP1-3.csv,BWA,,documented,Bet&Win away win odds,230,150,True
+SP1-3.csv,BFH,,documented,Betfair home win odds,380,0,True
+SP1-3.csv,BFD,,documented,Betfair draw odds,380,0,True
+SP1-3.csv,BFA,,documented,Betfair away win odds,380,0,True
+SP1-3.csv,PSH,,documented,Pinnacle home win odds,380,0,True
+SP1-3.csv,PSD,,documented,Pinnacle draw odds,380,0,True
+SP1-3.csv,PSA,,documented,Pinnacle away win odds,380,0,True
+SP1-3.csv,WHH,,documented,William Hill home win odds,279,101,True
+SP1-3.csv,WHD,,documented,William Hill draw odds,279,101,True
+SP1-3.csv,WHA,,documented,William Hill away win odds,279,101,True
+SP1-3.csv,1XBH,,documented,1XBet home win odds,370,10,True
+SP1-3.csv,1XBD,,documented,1XBet draw odds,370,10,True
+SP1-3.csv,1XBA,,documented,1XBet away win odds,370,10,True
+SP1-3.csv,MaxH,,documented,Market maximum home win odds,380,0,True
+SP1-3.csv,MaxD,,documented,Market maximum draw win odds,380,0,True
+SP1-3.csv,MaxA,,documented,Market maximum away win odds,380,0,True
+SP1-3.csv,AvgH,mkt_avg_odds_home,documented,Market average home win odds,380,0,True
+SP1-3.csv,AvgD,mkt_avg_odds_draw,documented,Market average draw win odds,380,0,True
+SP1-3.csv,AvgA,mkt_avg_odds_away,documented,Market average away win odds,380,0,True
+SP1-3.csv,BFEH,,documented,Betfair Exchange home win odds,380,0,True
+SP1-3.csv,BFED,,documented,Betfair Exchange draw odds,380,0,True
+SP1-3.csv,BFEA,,documented,Betfair Exchange away win odds,380,0,True
+SP1-3.csv,B365>2.5,,documented,Bet365 over 2.5 goals,380,0,True
+SP1-3.csv,B365<2.5,,documented,Bet365 under 2.5 goals,380,0,True
+SP1-3.csv,P>2.5,,documented,Pinnacle over 2.5 goals,378,2,True
+SP1-3.csv,P<2.5,,documented,Pinnacle under 2.5 goals,378,2,True
+SP1-3.csv,Max>2.5,,documented,Market maximum over 2.5 goals,380,0,True
+SP1-3.csv,Max<2.5,,documented,Market maximum under 2.5 goals,380,0,True
+SP1-3.csv,Avg>2.5,mkt_avg_odds_over25,documented,Market average over 2.5 goals,380,0,True
+SP1-3.csv,Avg<2.5,mkt_avg_odds_under25,documented,Market average under 2.5 goals,380,0,True
+SP1-3.csv,BFE>2.5,,inferred_pattern,"Betfair Exchange over 2.5 goals (pattern inferred, not listed in notes.txt)",373,7,True
+SP1-3.csv,BFE<2.5,,inferred_pattern,"Betfair Exchange under 2.5 goals (pattern inferred, not listed in notes.txt)",373,7,True
+SP1-3.csv,AHh,,documented,Market size of handicap (home team) (since 2019/2020),380,0,True
+SP1-3.csv,B365AHH,,documented,Bet365 Asian handicap home team odds,380,0,True
+SP1-3.csv,B365AHA,,documented,Bet365 Asian handicap away team odds,380,0,True
+SP1-3.csv,PAHH,,documented,Pinnacle Asian handicap home team odds,379,1,True
+SP1-3.csv,PAHA,,documented,Pinnacle Asian handicap away team odds,379,1,True
+SP1-3.csv,MaxAHH,,documented,Market maximum Asian handicap home team odds,380,0,True
+SP1-3.csv,MaxAHA,,documented,Market maximum Asian handicap away team odds,380,0,True
+SP1-3.csv,AvgAHH,,documented,Market average Asian handicap home team odds,380,0,True
+SP1-3.csv,AvgAHA,,documented,Market average Asian handicap away team odds,380,0,True
+SP1-3.csv,BFEAHH,,inferred_pattern,"Betfair Exchange Asian handicap home team odds (pattern inferred, not listed in notes.txt)",380,0,True
+SP1-3.csv,BFEAHA,,inferred_pattern,"Betfair Exchange Asian handicap away team odds (pattern inferred, not listed in notes.txt)",380,0,True
+SP1-3.csv,B365CH,,documented_rule,Closing odds: Bet365 home win odds,380,0,True
+SP1-3.csv,B365CD,,documented_rule,Closing odds: Bet365 draw odds,380,0,True
+SP1-3.csv,B365CA,,documented_rule,Closing odds: Bet365 away win odds,380,0,True
+SP1-3.csv,BWCH,,documented_rule,Closing odds: Bet&Win home win odds,229,151,True
+SP1-3.csv,BWCD,,documented_rule,Closing odds: Bet&Win draw odds,229,151,True
+SP1-3.csv,BWCA,,documented_rule,Closing odds: Bet&Win away win odds,229,151,True
+SP1-3.csv,BFCH,,documented_rule,Closing odds: Betfair home win odds,380,0,True
+SP1-3.csv,BFCD,,documented_rule,Closing odds: Betfair draw odds,380,0,True
+SP1-3.csv,BFCA,,documented_rule,Closing odds: Betfair away win odds,380,0,True
+SP1-3.csv,PSCH,,documented_rule,Closing odds: Pinnacle home win odds,380,0,True
+SP1-3.csv,PSCD,,documented_rule,Closing odds: Pinnacle draw odds,380,0,True
+SP1-3.csv,PSCA,,documented_rule,Closing odds: Pinnacle away win odds,380,0,True
+SP1-3.csv,WHCH,,documented_rule,Closing odds: William Hill home win odds,278,102,True
+SP1-3.csv,WHCD,,documented_rule,Closing odds: William Hill draw odds,278,102,True
+SP1-3.csv,WHCA,,documented_rule,Closing odds: William Hill away win odds,278,102,True
+SP1-3.csv,1XBCH,,documented_rule,Closing odds: 1XBet home win odds,380,0,True
+SP1-3.csv,1XBCD,,documented_rule,Closing odds: 1XBet draw odds,380,0,True
+SP1-3.csv,1XBCA,,documented_rule,Closing odds: 1XBet away win odds,380,0,True
+SP1-3.csv,MaxCH,,documented_rule,Closing odds: Market maximum home win odds,380,0,True
+SP1-3.csv,MaxCD,,documented_rule,Closing odds: Market maximum draw win odds,380,0,True
+SP1-3.csv,MaxCA,,documented_rule,Closing odds: Market maximum away win odds,380,0,True
+SP1-3.csv,AvgCH,,documented_rule,Closing odds: Market average home win odds,380,0,True
+SP1-3.csv,AvgCD,,documented_rule,Closing odds: Market average draw win odds,380,0,True
+SP1-3.csv,AvgCA,,documented_rule,Closing odds: Market average away win odds,380,0,True
+SP1-3.csv,BFECH,,documented_rule,Closing odds: Betfair Exchange home win odds,380,0,True
+SP1-3.csv,BFECD,,documented_rule,Closing odds: Betfair Exchange draw odds,380,0,True
+SP1-3.csv,BFECA,,documented_rule,Closing odds: Betfair Exchange away win odds,380,0,True
+SP1-3.csv,B365C>2.5,,documented_rule,Closing odds: Bet365 over 2.5 goals,380,0,True
+SP1-3.csv,B365C<2.5,,documented_rule,Closing odds: Bet365 under 2.5 goals,380,0,True
+SP1-3.csv,PC>2.5,,documented_rule,Closing odds: Pinnacle over 2.5 goals,378,2,True
+SP1-3.csv,PC<2.5,,documented_rule,Closing odds: Pinnacle under 2.5 goals,378,2,True
+SP1-3.csv,MaxC>2.5,,documented_rule,Closing odds: Market maximum over 2.5 goals,380,0,True
+SP1-3.csv,MaxC<2.5,,documented_rule,Closing odds: Market maximum under 2.5 goals,380,0,True
+SP1-3.csv,AvgC>2.5,,documented_rule,Closing odds: Market average over 2.5 goals,380,0,True
+SP1-3.csv,AvgC<2.5,,documented_rule,Closing odds: Market average under 2.5 goals,380,0,True
+SP1-3.csv,BFEC>2.5,,inferred_pattern,"Betfair Exchange closing over 2.5 goals (pattern inferred, not listed in notes.txt)",380,0,True
+SP1-3.csv,BFEC<2.5,,inferred_pattern,"Betfair Exchange closing under 2.5 goals (pattern inferred, not listed in notes.txt)",380,0,True
+SP1-3.csv,AHCh,,documented_rule,Closing odds: Market size of handicap (home team) (since 2019/2020),380,0,True
+SP1-3.csv,B365CAHH,,documented_rule,Closing odds: Bet365 Asian handicap home team odds,380,0,True
+SP1-3.csv,B365CAHA,,documented_rule,Closing odds: Bet365 Asian handicap away team odds,380,0,True
+SP1-3.csv,PCAHH,,documented_rule,Closing odds: Pinnacle Asian handicap home team odds,380,0,True
+SP1-3.csv,PCAHA,,documented_rule,Closing odds: Pinnacle Asian handicap away team odds,380,0,True
+SP1-3.csv,MaxCAHH,,documented_rule,Closing odds: Market maximum Asian handicap home team odds,380,0,True
+SP1-3.csv,MaxCAHA,,documented_rule,Closing odds: Market maximum Asian handicap away team odds,380,0,True
+SP1-3.csv,AvgCAHH,,documented_rule,Closing odds: Market average Asian handicap home team odds,380,0,True
+SP1-3.csv,AvgCAHA,,documented_rule,Closing odds: Market average Asian handicap away team odds,380,0,True
+SP1-3.csv,BFECAHH,,inferred_pattern,"Betfair Exchange closing Asian handicap home team odds (pattern inferred, not listed in notes.txt)",380,0,True
+SP1-3.csv,BFECAHA,,inferred_pattern,"Betfair Exchange closing Asian handicap away team odds (pattern inferred, not listed in notes.txt)",380,0,True
+SP1-4.csv,Div,competition,documented,League Division,380,0,False
+SP1-4.csv,Date,date,documented,Match Date (dd/mm/yy),380,0,False
+SP1-4.csv,Time,kickoff,documented,Time of match kick off,380,0,False
+SP1-4.csv,HomeTeam,home_team_raw,documented,Home Team,380,0,False
+SP1-4.csv,AwayTeam,away_team_raw,documented,Away Team,380,0,False
+SP1-4.csv,FTHG,home_goals,documented,Full Time Home Team Goals,380,0,True
+SP1-4.csv,FTAG,away_goals,documented,Full Time Away Team Goals,380,0,True
+SP1-4.csv,FTR,result,documented,"Full Time Result (H=Home Win, D=Draw, A=Away Win)",380,0,False
+SP1-4.csv,HTHG,ht_home_goals,documented,Half Time Home Team Goals,380,0,True
+SP1-4.csv,HTAG,ht_away_goals,documented,Half Time Away Team Goals,380,0,True
+SP1-4.csv,HTR,ht_result,documented,"Half Time Result (H=Home Win, D=Draw, A=Away Win)",380,0,False
+SP1-4.csv,HS,home_shots,documented,Home Team Shots,380,0,True
+SP1-4.csv,AS,away_shots,documented,Away Team Shots,380,0,True
+SP1-4.csv,HST,home_sot,documented,Home Team Shots on Target,380,0,True
+SP1-4.csv,AST,away_sot,documented,Away Team Shots on Target,380,0,True
+SP1-4.csv,HF,home_fouls,documented,Home Team Fouls Committed,380,0,True
+SP1-4.csv,AF,away_fouls,documented,Away Team Fouls Committed,380,0,True
+SP1-4.csv,HC,home_corners,documented,Home Team Corners,380,0,True
+SP1-4.csv,AC,away_corners,documented,Away Team Corners,380,0,True
+SP1-4.csv,HY,home_yellows,documented,Home Team Yellow Cards,380,0,True
+SP1-4.csv,AY,away_yellows,documented,Away Team Yellow Cards,380,0,True
+SP1-4.csv,HR,home_reds,documented,Home Team Red Cards,380,0,True
+SP1-4.csv,AR,away_reds,documented,Away Team Red Cards,380,0,True
+SP1-4.csv,B365H,,documented,Bet365 home win odds,380,0,True
+SP1-4.csv,B365D,,documented,Bet365 draw odds,380,0,True
+SP1-4.csv,B365A,,documented,Bet365 away win odds,380,0,True
+SP1-4.csv,BWH,,documented,Bet&Win home win odds,370,10,True
+SP1-4.csv,BWD,,documented,Bet&Win draw odds,370,10,True
+SP1-4.csv,BWA,,documented,Bet&Win away win odds,370,10,True
+SP1-4.csv,IWH,,documented,Interwetten home win odds,190,190,True
+SP1-4.csv,IWD,,documented,Interwetten draw odds,190,190,True
+SP1-4.csv,IWA,,documented,Interwetten away win odds,190,190,True
+SP1-4.csv,PSH,,documented,Pinnacle home win odds,380,0,True
+SP1-4.csv,PSD,,documented,Pinnacle draw odds,380,0,True
+SP1-4.csv,PSA,,documented,Pinnacle away win odds,380,0,True
+SP1-4.csv,WHH,,documented,William Hill home win odds,380,0,True
+SP1-4.csv,WHD,,documented,William Hill draw odds,380,0,True
+SP1-4.csv,WHA,,documented,William Hill away win odds,380,0,True
+SP1-4.csv,VCH,,documented,"VC Bet home win odds (now BetVictor, see above)",380,0,True
+SP1-4.csv,VCD,,documented,"VC Bet draw odds (now BetVictor, see above)",380,0,True
+SP1-4.csv,VCA,,documented,"VC Bet away win odds (now BetVictor, see above)",380,0,True
+SP1-4.csv,MaxH,,documented,Market maximum home win odds,380,0,True
+SP1-4.csv,MaxD,,documented,Market maximum draw win odds,380,0,True
+SP1-4.csv,MaxA,,documented,Market maximum away win odds,380,0,True
+SP1-4.csv,AvgH,mkt_avg_odds_home,documented,Market average home win odds,380,0,True
+SP1-4.csv,AvgD,mkt_avg_odds_draw,documented,Market average draw win odds,380,0,True
+SP1-4.csv,AvgA,mkt_avg_odds_away,documented,Market average away win odds,380,0,True
+SP1-4.csv,B365>2.5,,documented,Bet365 over 2.5 goals,380,0,True
+SP1-4.csv,B365<2.5,,documented,Bet365 under 2.5 goals,380,0,True
+SP1-4.csv,P>2.5,,documented,Pinnacle over 2.5 goals,379,1,True
+SP1-4.csv,P<2.5,,documented,Pinnacle under 2.5 goals,379,1,True
+SP1-4.csv,Max>2.5,,documented,Market maximum over 2.5 goals,380,0,True
+SP1-4.csv,Max<2.5,,documented,Market maximum under 2.5 goals,380,0,True
+SP1-4.csv,Avg>2.5,mkt_avg_odds_over25,documented,Market average over 2.5 goals,380,0,True
+SP1-4.csv,Avg<2.5,mkt_avg_odds_under25,documented,Market average under 2.5 goals,380,0,True
+SP1-4.csv,AHh,,documented,Market size of handicap (home team) (since 2019/2020),380,0,True
+SP1-4.csv,B365AHH,,documented,Bet365 Asian handicap home team odds,380,0,True
+SP1-4.csv,B365AHA,,documented,Bet365 Asian handicap away team odds,380,0,True
+SP1-4.csv,PAHH,,documented,Pinnacle Asian handicap home team odds,380,0,True
+SP1-4.csv,PAHA,,documented,Pinnacle Asian handicap away team odds,380,0,True
+SP1-4.csv,MaxAHH,,documented,Market maximum Asian handicap home team odds,380,0,True
+SP1-4.csv,MaxAHA,,documented,Market maximum Asian handicap away team odds,380,0,True
+SP1-4.csv,AvgAHH,,documented,Market average Asian handicap home team odds,380,0,True
+SP1-4.csv,AvgAHA,,documented,Market average Asian handicap away team odds,380,0,True
+SP1-4.csv,B365CH,,documented_rule,Closing odds: Bet365 home win odds,380,0,True
+SP1-4.csv,B365CD,,documented_rule,Closing odds: Bet365 draw odds,380,0,True
+SP1-4.csv,B365CA,,documented_rule,Closing odds: Bet365 away win odds,380,0,True
+SP1-4.csv,BWCH,,documented_rule,Closing odds: Bet&Win home win odds,372,8,True
+SP1-4.csv,BWCD,,documented_rule,Closing odds: Bet&Win draw odds,372,8,True
+SP1-4.csv,BWCA,,documented_rule,Closing odds: Bet&Win away win odds,372,8,True
+SP1-4.csv,IWCH,,documented_rule,Closing odds: Interwetten home win odds,187,193,True
+SP1-4.csv,IWCD,,documented_rule,Closing odds: Interwetten draw odds,187,193,True
+SP1-4.csv,IWCA,,documented_rule,Closing odds: Interwetten away win odds,187,193,True
+SP1-4.csv,PSCH,,documented_rule,Closing odds: Pinnacle home win odds,380,0,True
+SP1-4.csv,PSCD,,documented_rule,Closing odds: Pinnacle draw odds,380,0,True
+SP1-4.csv,PSCA,,documented_rule,Closing odds: Pinnacle away win odds,380,0,True
+SP1-4.csv,WHCH,,documented_rule,Closing odds: William Hill home win odds,380,0,True
+SP1-4.csv,WHCD,,documented_rule,Closing odds: William Hill draw odds,380,0,True
+SP1-4.csv,WHCA,,documented_rule,Closing odds: William Hill away win odds,380,0,True
+SP1-4.csv,VCCH,,documented_rule,"Closing odds: VC Bet home win odds (now BetVictor, see above)",380,0,True
+SP1-4.csv,VCCD,,documented_rule,"Closing odds: VC Bet draw odds (now BetVictor, see above)",380,0,True
+SP1-4.csv,VCCA,,documented_rule,"Closing odds: VC Bet away win odds (now BetVictor, see above)",380,0,True
+SP1-4.csv,MaxCH,,documented_rule,Closing odds: Market maximum home win odds,380,0,True
+SP1-4.csv,MaxCD,,documented_rule,Closing odds: Market maximum draw win odds,380,0,True
+SP1-4.csv,MaxCA,,documented_rule,Closing odds: Market maximum away win odds,380,0,True
+SP1-4.csv,AvgCH,,documented_rule,Closing odds: Market average home win odds,380,0,True
+SP1-4.csv,AvgCD,,documented_rule,Closing odds: Market average draw win odds,380,0,True
+SP1-4.csv,AvgCA,,documented_rule,Closing odds: Market average away win odds,380,0,True
+SP1-4.csv,B365C>2.5,,documented_rule,Closing odds: Bet365 over 2.5 goals,380,0,True
+SP1-4.csv,B365C<2.5,,documented_rule,Closing odds: Bet365 under 2.5 goals,380,0,True
+SP1-4.csv,PC>2.5,,documented_rule,Closing odds: Pinnacle over 2.5 goals,380,0,True
+SP1-4.csv,PC<2.5,,documented_rule,Closing odds: Pinnacle under 2.5 goals,380,0,True
+SP1-4.csv,MaxC>2.5,,documented_rule,Closing odds: Market maximum over 2.5 goals,380,0,True
+SP1-4.csv,MaxC<2.5,,documented_rule,Closing odds: Market maximum under 2.5 goals,380,0,True
+SP1-4.csv,AvgC>2.5,,documented_rule,Closing odds: Market average over 2.5 goals,380,0,True
+SP1-4.csv,AvgC<2.5,,documented_rule,Closing odds: Market average under 2.5 goals,380,0,True
+SP1-4.csv,AHCh,,documented_rule,Closing odds: Market size of handicap (home team) (since 2019/2020),380,0,True
+SP1-4.csv,B365CAHH,,documented_rule,Closing odds: Bet365 Asian handicap home team odds,380,0,True
+SP1-4.csv,B365CAHA,,documented_rule,Closing odds: Bet365 Asian handicap away team odds,380,0,True
+SP1-4.csv,PCAHH,,documented_rule,Closing odds: Pinnacle Asian handicap home team odds,380,0,True
+SP1-4.csv,PCAHA,,documented_rule,Closing odds: Pinnacle Asian handicap away team odds,380,0,True
+SP1-4.csv,MaxCAHH,,documented_rule,Closing odds: Market maximum Asian handicap home team odds,380,0,True
+SP1-4.csv,MaxCAHA,,documented_rule,Closing odds: Market maximum Asian handicap away team odds,380,0,True
+SP1-4.csv,AvgCAHH,,documented_rule,Closing odds: Market average Asian handicap home team odds,380,0,True
+SP1-4.csv,AvgCAHA,,documented_rule,Closing odds: Market average Asian handicap away team odds,380,0,True
+SP1-5.csv,Div,competition,documented,League Division,380,0,False
+SP1-5.csv,Date,date,documented,Match Date (dd/mm/yy),380,0,False
+SP1-5.csv,Time,kickoff,documented,Time of match kick off,380,0,False
+SP1-5.csv,HomeTeam,home_team_raw,documented,Home Team,380,0,False
+SP1-5.csv,AwayTeam,away_team_raw,documented,Away Team,380,0,False
+SP1-5.csv,FTHG,home_goals,documented,Full Time Home Team Goals,380,0,True
+SP1-5.csv,FTAG,away_goals,documented,Full Time Away Team Goals,380,0,True
+SP1-5.csv,FTR,result,documented,"Full Time Result (H=Home Win, D=Draw, A=Away Win)",380,0,False
+SP1-5.csv,HTHG,ht_home_goals,documented,Half Time Home Team Goals,380,0,True
+SP1-5.csv,HTAG,ht_away_goals,documented,Half Time Away Team Goals,380,0,True
+SP1-5.csv,HTR,ht_result,documented,"Half Time Result (H=Home Win, D=Draw, A=Away Win)",380,0,False
+SP1-5.csv,HS,home_shots,documented,Home Team Shots,380,0,True
+SP1-5.csv,AS,away_shots,documented,Away Team Shots,380,0,True
+SP1-5.csv,HST,home_sot,documented,Home Team Shots on Target,380,0,True
+SP1-5.csv,AST,away_sot,documented,Away Team Shots on Target,380,0,True
+SP1-5.csv,HF,home_fouls,documented,Home Team Fouls Committed,380,0,True
+SP1-5.csv,AF,away_fouls,documented,Away Team Fouls Committed,380,0,True
+SP1-5.csv,HC,home_corners,documented,Home Team Corners,380,0,True
+SP1-5.csv,AC,away_corners,documented,Away Team Corners,380,0,True
+SP1-5.csv,HY,home_yellows,documented,Home Team Yellow Cards,380,0,True
+SP1-5.csv,AY,away_yellows,documented,Away Team Yellow Cards,380,0,True
+SP1-5.csv,HR,home_reds,documented,Home Team Red Cards,380,0,True
+SP1-5.csv,AR,away_reds,documented,Away Team Red Cards,380,0,True
+SP1-5.csv,B365H,,documented,Bet365 home win odds,380,0,True
+SP1-5.csv,B365D,,documented,Bet365 draw odds,380,0,True
+SP1-5.csv,B365A,,documented,Bet365 away win odds,380,0,True
+SP1-5.csv,BWH,,documented,Bet&Win home win odds,380,0,True
+SP1-5.csv,BWD,,documented,Bet&Win draw odds,380,0,True
+SP1-5.csv,BWA,,documented,Bet&Win away win odds,380,0,True
+SP1-5.csv,IWH,,documented,Interwetten home win odds,380,0,True
+SP1-5.csv,IWD,,documented,Interwetten draw odds,380,0,True
+SP1-5.csv,IWA,,documented,Interwetten away win odds,380,0,True
+SP1-5.csv,PSH,,documented,Pinnacle home win odds,380,0,True
+SP1-5.csv,PSD,,documented,Pinnacle draw odds,380,0,True
+SP1-5.csv,PSA,,documented,Pinnacle away win odds,380,0,True
+SP1-5.csv,WHH,,documented,William Hill home win odds,380,0,True
+SP1-5.csv,WHD,,documented,William Hill draw odds,380,0,True
+SP1-5.csv,WHA,,documented,William Hill away win odds,380,0,True
+SP1-5.csv,VCH,,documented,"VC Bet home win odds (now BetVictor, see above)",380,0,True
+SP1-5.csv,VCD,,documented,"VC Bet draw odds (now BetVictor, see above)",380,0,True
+SP1-5.csv,VCA,,documented,"VC Bet away win odds (now BetVictor, see above)",380,0,True
+SP1-5.csv,MaxH,,documented,Market maximum home win odds,380,0,True
+SP1-5.csv,MaxD,,documented,Market maximum draw win odds,380,0,True
+SP1-5.csv,MaxA,,documented,Market maximum away win odds,380,0,True
+SP1-5.csv,AvgH,mkt_avg_odds_home,documented,Market average home win odds,380,0,True
+SP1-5.csv,AvgD,mkt_avg_odds_draw,documented,Market average draw win odds,380,0,True
+SP1-5.csv,AvgA,mkt_avg_odds_away,documented,Market average away win odds,380,0,True
+SP1-5.csv,B365>2.5,,documented,Bet365 over 2.5 goals,380,0,True
+SP1-5.csv,B365<2.5,,documented,Bet365 under 2.5 goals,380,0,True
+SP1-5.csv,P>2.5,,documented,Pinnacle over 2.5 goals,380,0,True
+SP1-5.csv,P<2.5,,documented,Pinnacle under 2.5 goals,380,0,True
+SP1-5.csv,Max>2.5,,documented,Market maximum over 2.5 goals,380,0,True
+SP1-5.csv,Max<2.5,,documented,Market maximum under 2.5 goals,380,0,True
+SP1-5.csv,Avg>2.5,mkt_avg_odds_over25,documented,Market average over 2.5 goals,380,0,True
+SP1-5.csv,Avg<2.5,mkt_avg_odds_under25,documented,Market average under 2.5 goals,380,0,True
+SP1-5.csv,AHh,,documented,Market size of handicap (home team) (since 2019/2020),380,0,True
+SP1-5.csv,B365AHH,,documented,Bet365 Asian handicap home team odds,380,0,True
+SP1-5.csv,B365AHA,,documented,Bet365 Asian handicap away team odds,380,0,True
+SP1-5.csv,PAHH,,documented,Pinnacle Asian handicap home team odds,380,0,True
+SP1-5.csv,PAHA,,documented,Pinnacle Asian handicap away team odds,380,0,True
+SP1-5.csv,MaxAHH,,documented,Market maximum Asian handicap home team odds,380,0,True
+SP1-5.csv,MaxAHA,,documented,Market maximum Asian handicap away team odds,380,0,True
+SP1-5.csv,AvgAHH,,documented,Market average Asian handicap home team odds,380,0,True
+SP1-5.csv,AvgAHA,,documented,Market average Asian handicap away team odds,380,0,True
+SP1-5.csv,B365CH,,documented_rule,Closing odds: Bet365 home win odds,380,0,True
+SP1-5.csv,B365CD,,documented_rule,Closing odds: Bet365 draw odds,380,0,True
+SP1-5.csv,B365CA,,documented_rule,Closing odds: Bet365 away win odds,380,0,True
+SP1-5.csv,BWCH,,documented_rule,Closing odds: Bet&Win home win odds,380,0,True
+SP1-5.csv,BWCD,,documented_rule,Closing odds: Bet&Win draw odds,380,0,True
+SP1-5.csv,BWCA,,documented_rule,Closing odds: Bet&Win away win odds,380,0,True
+SP1-5.csv,IWCH,,documented_rule,Closing odds: Interwetten home win odds,380,0,True
+SP1-5.csv,IWCD,,documented_rule,Closing odds: Interwetten draw odds,380,0,True
+SP1-5.csv,IWCA,,documented_rule,Closing odds: Interwetten away win odds,380,0,True
+SP1-5.csv,PSCH,,documented_rule,Closing odds: Pinnacle home win odds,380,0,True
+SP1-5.csv,PSCD,,documented_rule,Closing odds: Pinnacle draw odds,380,0,True
+SP1-5.csv,PSCA,,documented_rule,Closing odds: Pinnacle away win odds,380,0,True
+SP1-5.csv,WHCH,,documented_rule,Closing odds: William Hill home win odds,380,0,True
+SP1-5.csv,WHCD,,documented_rule,Closing odds: William Hill draw odds,380,0,True
+SP1-5.csv,WHCA,,documented_rule,Closing odds: William Hill away win odds,380,0,True
+SP1-5.csv,VCCH,,documented_rule,"Closing odds: VC Bet home win odds (now BetVictor, see above)",380,0,True
+SP1-5.csv,VCCD,,documented_rule,"Closing odds: VC Bet draw odds (now BetVictor, see above)",380,0,True
+SP1-5.csv,VCCA,,documented_rule,"Closing odds: VC Bet away win odds (now BetVictor, see above)",380,0,True
+SP1-5.csv,MaxCH,,documented_rule,Closing odds: Market maximum home win odds,380,0,True
+SP1-5.csv,MaxCD,,documented_rule,Closing odds: Market maximum draw win odds,380,0,True
+SP1-5.csv,MaxCA,,documented_rule,Closing odds: Market maximum away win odds,380,0,True
+SP1-5.csv,AvgCH,,documented_rule,Closing odds: Market average home win odds,380,0,True
+SP1-5.csv,AvgCD,,documented_rule,Closing odds: Market average draw win odds,380,0,True
+SP1-5.csv,AvgCA,,documented_rule,Closing odds: Market average away win odds,380,0,True
+SP1-5.csv,B365C>2.5,,documented_rule,Closing odds: Bet365 over 2.5 goals,380,0,True
+SP1-5.csv,B365C<2.5,,documented_rule,Closing odds: Bet365 under 2.5 goals,380,0,True
+SP1-5.csv,PC>2.5,,documented_rule,Closing odds: Pinnacle over 2.5 goals,380,0,True
+SP1-5.csv,PC<2.5,,documented_rule,Closing odds: Pinnacle under 2.5 goals,380,0,True
+SP1-5.csv,MaxC>2.5,,documented_rule,Closing odds: Market maximum over 2.5 goals,380,0,True
+SP1-5.csv,MaxC<2.5,,documented_rule,Closing odds: Market maximum under 2.5 goals,380,0,True
+SP1-5.csv,AvgC>2.5,,documented_rule,Closing odds: Market average over 2.5 goals,380,0,True
+SP1-5.csv,AvgC<2.5,,documented_rule,Closing odds: Market average under 2.5 goals,380,0,True
+SP1-5.csv,AHCh,,documented_rule,Closing odds: Market size of handicap (home team) (since 2019/2020),380,0,True
+SP1-5.csv,B365CAHH,,documented_rule,Closing odds: Bet365 Asian handicap home team odds,380,0,True
+SP1-5.csv,B365CAHA,,documented_rule,Closing odds: Bet365 Asian handicap away team odds,380,0,True
+SP1-5.csv,PCAHH,,documented_rule,Closing odds: Pinnacle Asian handicap home team odds,380,0,True
+SP1-5.csv,PCAHA,,documented_rule,Closing odds: Pinnacle Asian handicap away team odds,380,0,True
+SP1-5.csv,MaxCAHH,,documented_rule,Closing odds: Market maximum Asian handicap home team odds,380,0,True
+SP1-5.csv,MaxCAHA,,documented_rule,Closing odds: Market maximum Asian handicap away team odds,380,0,True
+SP1-5.csv,AvgCAHH,,documented_rule,Closing odds: Market average Asian handicap home team odds,380,0,True
+SP1-5.csv,AvgCAHA,,documented_rule,Closing odds: Market average Asian handicap away team odds,380,0,True
+SP1-6.csv,Div,competition,documented,League Division,380,0,False
+SP1-6.csv,Date,date,documented,Match Date (dd/mm/yy),380,0,False
+SP1-6.csv,Time,kickoff,documented,Time of match kick off,380,0,False
+SP1-6.csv,HomeTeam,home_team_raw,documented,Home Team,380,0,False
+SP1-6.csv,AwayTeam,away_team_raw,documented,Away Team,380,0,False
+SP1-6.csv,FTHG,home_goals,documented,Full Time Home Team Goals,380,0,True
+SP1-6.csv,FTAG,away_goals,documented,Full Time Away Team Goals,380,0,True
+SP1-6.csv,FTR,result,documented,"Full Time Result (H=Home Win, D=Draw, A=Away Win)",380,0,False
+SP1-6.csv,HTHG,ht_home_goals,documented,Half Time Home Team Goals,380,0,True
+SP1-6.csv,HTAG,ht_away_goals,documented,Half Time Away Team Goals,380,0,True
+SP1-6.csv,HTR,ht_result,documented,"Half Time Result (H=Home Win, D=Draw, A=Away Win)",380,0,False
+SP1-6.csv,HS,home_shots,documented,Home Team Shots,380,0,True
+SP1-6.csv,AS,away_shots,documented,Away Team Shots,380,0,True
+SP1-6.csv,HST,home_sot,documented,Home Team Shots on Target,380,0,True
+SP1-6.csv,AST,away_sot,documented,Away Team Shots on Target,380,0,True
+SP1-6.csv,HF,home_fouls,documented,Home Team Fouls Committed,380,0,True
+SP1-6.csv,AF,away_fouls,documented,Away Team Fouls Committed,380,0,True
+SP1-6.csv,HC,home_corners,documented,Home Team Corners,380,0,True
+SP1-6.csv,AC,away_corners,documented,Away Team Corners,380,0,True
+SP1-6.csv,HY,home_yellows,documented,Home Team Yellow Cards,380,0,True
+SP1-6.csv,AY,away_yellows,documented,Away Team Yellow Cards,380,0,True
+SP1-6.csv,HR,home_reds,documented,Home Team Red Cards,380,0,True
+SP1-6.csv,AR,away_reds,documented,Away Team Red Cards,380,0,True
+SP1-6.csv,B365H,,documented,Bet365 home win odds,380,0,True
+SP1-6.csv,B365D,,documented,Bet365 draw odds,380,0,True
+SP1-6.csv,B365A,,documented,Bet365 away win odds,380,0,True
+SP1-6.csv,BWH,,documented,Bet&Win home win odds,380,0,True
+SP1-6.csv,BWD,,documented,Bet&Win draw odds,380,0,True
+SP1-6.csv,BWA,,documented,Bet&Win away win odds,380,0,True
+SP1-6.csv,IWH,,documented,Interwetten home win odds,380,0,True
+SP1-6.csv,IWD,,documented,Interwetten draw odds,380,0,True
+SP1-6.csv,IWA,,documented,Interwetten away win odds,380,0,True
+SP1-6.csv,PSH,,documented,Pinnacle home win odds,379,1,True
+SP1-6.csv,PSD,,documented,Pinnacle draw odds,379,1,True
+SP1-6.csv,PSA,,documented,Pinnacle away win odds,379,1,True
+SP1-6.csv,WHH,,documented,William Hill home win odds,380,0,True
+SP1-6.csv,WHD,,documented,William Hill draw odds,380,0,True
+SP1-6.csv,WHA,,documented,William Hill away win odds,380,0,True
+SP1-6.csv,VCH,,documented,"VC Bet home win odds (now BetVictor, see above)",380,0,True
+SP1-6.csv,VCD,,documented,"VC Bet draw odds (now BetVictor, see above)",380,0,True
+SP1-6.csv,VCA,,documented,"VC Bet away win odds (now BetVictor, see above)",380,0,True
+SP1-6.csv,MaxH,,documented,Market maximum home win odds,380,0,True
+SP1-6.csv,MaxD,,documented,Market maximum draw win odds,380,0,True
+SP1-6.csv,MaxA,,documented,Market maximum away win odds,380,0,True
+SP1-6.csv,AvgH,mkt_avg_odds_home,documented,Market average home win odds,380,0,True
+SP1-6.csv,AvgD,mkt_avg_odds_draw,documented,Market average draw win odds,380,0,True
+SP1-6.csv,AvgA,mkt_avg_odds_away,documented,Market average away win odds,380,0,True
+SP1-6.csv,B365>2.5,,documented,Bet365 over 2.5 goals,380,0,True
+SP1-6.csv,B365<2.5,,documented,Bet365 under 2.5 goals,380,0,True
+SP1-6.csv,P>2.5,,documented,Pinnacle over 2.5 goals,379,1,True
+SP1-6.csv,P<2.5,,documented,Pinnacle under 2.5 goals,379,1,True
+SP1-6.csv,Max>2.5,,documented,Market maximum over 2.5 goals,380,0,True
+SP1-6.csv,Max<2.5,,documented,Market maximum under 2.5 goals,380,0,True
+SP1-6.csv,Avg>2.5,mkt_avg_odds_over25,documented,Market average over 2.5 goals,380,0,True
+SP1-6.csv,Avg<2.5,mkt_avg_odds_under25,documented,Market average under 2.5 goals,380,0,True
+SP1-6.csv,AHh,,documented,Market size of handicap (home team) (since 2019/2020),380,0,True
+SP1-6.csv,B365AHH,,documented,Bet365 Asian handicap home team odds,379,1,True
+SP1-6.csv,B365AHA,,documented,Bet365 Asian handicap away team odds,379,1,True
+SP1-6.csv,PAHH,,documented,Pinnacle Asian handicap home team odds,379,1,True
+SP1-6.csv,PAHA,,documented,Pinnacle Asian handicap away team odds,379,1,True
+SP1-6.csv,MaxAHH,,documented,Market maximum Asian handicap home team odds,380,0,True
+SP1-6.csv,MaxAHA,,documented,Market maximum Asian handicap away team odds,380,0,True
+SP1-6.csv,AvgAHH,,documented,Market average Asian handicap home team odds,380,0,True
+SP1-6.csv,AvgAHA,,documented,Market average Asian handicap away team odds,380,0,True
+SP1-6.csv,B365CH,,documented_rule,Closing odds: Bet365 home win odds,380,0,True
+SP1-6.csv,B365CD,,documented_rule,Closing odds: Bet365 draw odds,380,0,True
+SP1-6.csv,B365CA,,documented_rule,Closing odds: Bet365 away win odds,380,0,True
+SP1-6.csv,BWCH,,documented_rule,Closing odds: Bet&Win home win odds,380,0,True
+SP1-6.csv,BWCD,,documented_rule,Closing odds: Bet&Win draw odds,380,0,True
+SP1-6.csv,BWCA,,documented_rule,Closing odds: Bet&Win away win odds,380,0,True
+SP1-6.csv,IWCH,,documented_rule,Closing odds: Interwetten home win odds,377,3,True
+SP1-6.csv,IWCD,,documented_rule,Closing odds: Interwetten draw odds,377,3,True
+SP1-6.csv,IWCA,,documented_rule,Closing odds: Interwetten away win odds,377,3,True
+SP1-6.csv,PSCH,,documented_rule,Closing odds: Pinnacle home win odds,380,0,True
+SP1-6.csv,PSCD,,documented_rule,Closing odds: Pinnacle draw odds,380,0,True
+SP1-6.csv,PSCA,,documented_rule,Closing odds: Pinnacle away win odds,380,0,True
+SP1-6.csv,WHCH,,documented_rule,Closing odds: William Hill home win odds,380,0,True
+SP1-6.csv,WHCD,,documented_rule,Closing odds: William Hill draw odds,380,0,True
+SP1-6.csv,WHCA,,documented_rule,Closing odds: William Hill away win odds,380,0,True
+SP1-6.csv,VCCH,,documented_rule,"Closing odds: VC Bet home win odds (now BetVictor, see above)",380,0,True
+SP1-6.csv,VCCD,,documented_rule,"Closing odds: VC Bet draw odds (now BetVictor, see above)",380,0,True
+SP1-6.csv,VCCA,,documented_rule,"Closing odds: VC Bet away win odds (now BetVictor, see above)",380,0,True
+SP1-6.csv,MaxCH,,documented_rule,Closing odds: Market maximum home win odds,380,0,True
+SP1-6.csv,MaxCD,,documented_rule,Closing odds: Market maximum draw win odds,380,0,True
+SP1-6.csv,MaxCA,,documented_rule,Closing odds: Market maximum away win odds,380,0,True
+SP1-6.csv,AvgCH,,documented_rule,Closing odds: Market average home win odds,380,0,True
+SP1-6.csv,AvgCD,,documented_rule,Closing odds: Market average draw win odds,380,0,True
+SP1-6.csv,AvgCA,,documented_rule,Closing odds: Market average away win odds,380,0,True
+SP1-6.csv,B365C>2.5,,documented_rule,Closing odds: Bet365 over 2.5 goals,380,0,True
+SP1-6.csv,B365C<2.5,,documented_rule,Closing odds: Bet365 under 2.5 goals,380,0,True
+SP1-6.csv,PC>2.5,,documented_rule,Closing odds: Pinnacle over 2.5 goals,380,0,True
+SP1-6.csv,PC<2.5,,documented_rule,Closing odds: Pinnacle under 2.5 goals,380,0,True
+SP1-6.csv,MaxC>2.5,,documented_rule,Closing odds: Market maximum over 2.5 goals,380,0,True
+SP1-6.csv,MaxC<2.5,,documented_rule,Closing odds: Market maximum under 2.5 goals,380,0,True
+SP1-6.csv,AvgC>2.5,,documented_rule,Closing odds: Market average over 2.5 goals,380,0,True
+SP1-6.csv,AvgC<2.5,,documented_rule,Closing odds: Market average under 2.5 goals,380,0,True
+SP1-6.csv,AHCh,,documented_rule,Closing odds: Market size of handicap (home team) (since 2019/2020),380,0,True
+SP1-6.csv,B365CAHH,,documented_rule,Closing odds: Bet365 Asian handicap home team odds,379,1,True
+SP1-6.csv,B365CAHA,,documented_rule,Closing odds: Bet365 Asian handicap away team odds,379,1,True
+SP1-6.csv,PCAHH,,documented_rule,Closing odds: Pinnacle Asian handicap home team odds,380,0,True
+SP1-6.csv,PCAHA,,documented_rule,Closing odds: Pinnacle Asian handicap away team odds,380,0,True
+SP1-6.csv,MaxCAHH,,documented_rule,Closing odds: Market maximum Asian handicap home team odds,380,0,True
+SP1-6.csv,MaxCAHA,,documented_rule,Closing odds: Market maximum Asian handicap away team odds,380,0,True
+SP1-6.csv,AvgCAHH,,documented_rule,Closing odds: Market average Asian handicap home team odds,380,0,True
+SP1-6.csv,AvgCAHA,,documented_rule,Closing odds: Market average Asian handicap away team odds,380,0,True
+SP1.csv,Div,competition,documented,League Division,88,0,False
+SP1.csv,Date,date,documented,Match Date (dd/mm/yy),88,0,False
+SP1.csv,Time,kickoff,documented,Time of match kick off,88,0,False
+SP1.csv,HomeTeam,home_team_raw,documented,Home Team,88,0,False
+SP1.csv,AwayTeam,away_team_raw,documented,Away Team,88,0,False
+SP1.csv,FTHG,home_goals,documented,Full Time Home Team Goals,88,0,True
+SP1.csv,FTAG,away_goals,documented,Full Time Away Team Goals,88,0,True
+SP1.csv,FTR,result,documented,"Full Time Result (H=Home Win, D=Draw, A=Away Win)",88,0,False
+SP1.csv,HTHG,ht_home_goals,documented,Half Time Home Team Goals,88,0,True
+SP1.csv,HTAG,ht_away_goals,documented,Half Time Away Team Goals,88,0,True
+SP1.csv,HTR,ht_result,documented,"Half Time Result (H=Home Win, D=Draw, A=Away Win)",88,0,False
+SP1.csv,HxG,home_xg_undocumented,undocumented,,88,0,True
+SP1.csv,AxG,away_xg_undocumented,undocumented,,88,0,True
+SP1.csv,HS,home_shots,documented,Home Team Shots,88,0,True
+SP1.csv,AS,away_shots,documented,Away Team Shots,88,0,True
+SP1.csv,HST,home_sot,documented,Home Team Shots on Target,88,0,True
+SP1.csv,AST,away_sot,documented,Away Team Shots on Target,88,0,True
+SP1.csv,HF,home_fouls,documented,Home Team Fouls Committed,88,0,True
+SP1.csv,AF,away_fouls,documented,Away Team Fouls Committed,88,0,True
+SP1.csv,HC,home_corners,documented,Home Team Corners,88,0,True
+SP1.csv,AC,away_corners,documented,Away Team Corners,88,0,True
+SP1.csv,HY,home_yellows,documented,Home Team Yellow Cards,88,0,True
+SP1.csv,AY,away_yellows,documented,Away Team Yellow Cards,88,0,True
+SP1.csv,HR,home_reds,documented,Home Team Red Cards,88,0,True
+SP1.csv,AR,away_reds,documented,Away Team Red Cards,88,0,True
+SP1.csv,B365H,,documented,Bet365 home win odds,88,0,True
+SP1.csv,B365D,,documented,Bet365 draw odds,88,0,True
+SP1.csv,B365A,,documented,Bet365 away win odds,88,0,True
+SP1.csv,BFDH,,documented,Betfred home win odds,88,0,True
+SP1.csv,BFDD,,documented,Betfred draw odds,88,0,True
+SP1.csv,BFDA,,documented,Betfred away win odds,88,0,True
+SP1.csv,BVH,,documented,Betvictor home win odds,88,0,True
+SP1.csv,BVD,,documented,Betvictor draw odds,88,0,True
+SP1.csv,BVA,,documented,Betvictor away win odds,88,0,True
+SP1.csv,BWH,,documented,Bet&Win home win odds,88,0,True
+SP1.csv,BWD,,documented,Bet&Win draw odds,88,0,True
+SP1.csv,BWA,,documented,Bet&Win away win odds,88,0,True
+SP1.csv,PPH,,documented,Paddy Power home win odds,88,0,True
+SP1.csv,PPD,,documented,Paddy Power draw odds,88,0,True
+SP1.csv,PPA,,documented,Paddy Power away win odds,88,0,True
+SP1.csv,SKBH,,undocumented,,88,0,True
+SP1.csv,SKBD,,undocumented,,88,0,True
+SP1.csv,SKBA,,undocumented,,88,0,True
+SP1.csv,MaxH,,documented,Market maximum home win odds,88,0,True
+SP1.csv,MaxD,,documented,Market maximum draw win odds,88,0,True
+SP1.csv,MaxA,,documented,Market maximum away win odds,88,0,True
+SP1.csv,AvgH,mkt_avg_odds_home,documented,Market average home win odds,88,0,True
+SP1.csv,AvgD,mkt_avg_odds_draw,documented,Market average draw win odds,88,0,True
+SP1.csv,AvgA,mkt_avg_odds_away,documented,Market average away win odds,88,0,True
+SP1.csv,BFEH,,documented,Betfair Exchange home win odds,88,0,True
+SP1.csv,BFED,,documented,Betfair Exchange draw odds,88,0,True
+SP1.csv,BFEA,,documented,Betfair Exchange away win odds,88,0,True
+SP1.csv,B365>2.5,,documented,Bet365 over 2.5 goals,88,0,True
+SP1.csv,B365<2.5,,documented,Bet365 under 2.5 goals,88,0,True
+SP1.csv,Max>2.5,,documented,Market maximum over 2.5 goals,88,0,True
+SP1.csv,Max<2.5,,documented,Market maximum under 2.5 goals,88,0,True
+SP1.csv,Avg>2.5,mkt_avg_odds_over25,documented,Market average over 2.5 goals,88,0,True
+SP1.csv,Avg<2.5,mkt_avg_odds_under25,documented,Market average under 2.5 goals,88,0,True
+SP1.csv,BFE>2.5,,inferred_pattern,"Betfair Exchange over 2.5 goals (pattern inferred, not listed in notes.txt)",88,0,True
+SP1.csv,BFE<2.5,,inferred_pattern,"Betfair Exchange under 2.5 goals (pattern inferred, not listed in notes.txt)",88,0,True
+SP1.csv,AHh,,documented,Market size of handicap (home team) (since 2019/2020),88,0,True
+SP1.csv,B365AHH,,documented,Bet365 Asian handicap home team odds,88,0,True
+SP1.csv,B365AHA,,documented,Bet365 Asian handicap away team odds,88,0,True
+SP1.csv,MaxAHH,,documented,Market maximum Asian handicap home team odds,88,0,True
+SP1.csv,MaxAHA,,documented,Market maximum Asian handicap away team odds,88,0,True
+SP1.csv,AvgAHH,,documented,Market average Asian handicap home team odds,88,0,True
+SP1.csv,AvgAHA,,documented,Market average Asian handicap away team odds,88,0,True
+SP1.csv,BFEAHH,,inferred_pattern,"Betfair Exchange Asian handicap home team odds (pattern inferred, not listed in notes.txt)",87,1,True
+SP1.csv,BFEAHA,,inferred_pattern,"Betfair Exchange Asian handicap away team odds (pattern inferred, not listed in notes.txt)",87,1,True
+SP1.csv,B365CH,,documented_rule,Closing odds: Bet365 home win odds,88,0,True
+SP1.csv,B365CD,,documented_rule,Closing odds: Bet365 draw odds,88,0,True
+SP1.csv,B365CA,,documented_rule,Closing odds: Bet365 away win odds,88,0,True
+SP1.csv,BFDCH,,documented_rule,Closing odds: Betfred home win odds,88,0,True
+SP1.csv,BFDCD,,documented_rule,Closing odds: Betfred draw odds,88,0,True
+SP1.csv,BFDCA,,documented_rule,Closing odds: Betfred away win odds,88,0,True
+SP1.csv,BVCH,,documented_rule,Closing odds: Betvictor home win odds,88,0,True
+SP1.csv,BVCD,,documented_rule,Closing odds: Betvictor draw odds,88,0,True
+SP1.csv,BVCA,,documented_rule,Closing odds: Betvictor away win odds,88,0,True
+SP1.csv,BWCH,,documented_rule,Closing odds: Bet&Win home win odds,83,5,True
+SP1.csv,BWCD,,documented_rule,Closing odds: Bet&Win draw odds,83,5,True
+SP1.csv,BWCA,,documented_rule,Closing odds: Bet&Win away win odds,83,5,True
+SP1.csv,PPCH,,documented_rule,Closing odds: Paddy Power home win odds,88,0,True
+SP1.csv,PPCD,,documented_rule,Closing odds: Paddy Power draw odds,88,0,True
+SP1.csv,PPCA,,documented_rule,Closing odds: Paddy Power away win odds,88,0,True
+SP1.csv,SKBCH,,undocumented,,88,0,True
+SP1.csv,SKBCD,,undocumented,,88,0,True
+SP1.csv,SKBCA,,undocumented,,88,0,True
+SP1.csv,MaxCH,,documented_rule,Closing odds: Market maximum home win odds,88,0,True
+SP1.csv,MaxCD,,documented_rule,Closing odds: Market maximum draw win odds,88,0,True
+SP1.csv,MaxCA,,documented_rule,Closing odds: Market maximum away win odds,88,0,True
+SP1.csv,AvgCH,,documented_rule,Closing odds: Market average home win odds,88,0,True
+SP1.csv,AvgCD,,documented_rule,Closing odds: Market average draw win odds,88,0,True
+SP1.csv,AvgCA,,documented_rule,Closing odds: Market average away win odds,88,0,True
+SP1.csv,BFECH,,documented_rule,Closing odds: Betfair Exchange home win odds,88,0,True
+SP1.csv,BFECD,,documented_rule,Closing odds: Betfair Exchange draw odds,88,0,True
+SP1.csv,BFECA,,documented_rule,Closing odds: Betfair Exchange away win odds,88,0,True
+SP1.csv,B365C>2.5,,documented_rule,Closing odds: Bet365 over 2.5 goals,88,0,True
+SP1.csv,B365C<2.5,,documented_rule,Closing odds: Bet365 under 2.5 goals,88,0,True
+SP1.csv,MaxC>2.5,,documented_rule,Closing odds: Market maximum over 2.5 goals,88,0,True
+SP1.csv,MaxC<2.5,,documented_rule,Closing odds: Market maximum under 2.5 goals,88,0,True
+SP1.csv,AvgC>2.5,,documented_rule,Closing odds: Market average over 2.5 goals,88,0,True
+SP1.csv,AvgC<2.5,,documented_rule,Closing odds: Market average under 2.5 goals,88,0,True
+SP1.csv,BFEC>2.5,,inferred_pattern,"Betfair Exchange closing over 2.5 goals (pattern inferred, not listed in notes.txt)",88,0,True
+SP1.csv,BFEC<2.5,,inferred_pattern,"Betfair Exchange closing under 2.5 goals (pattern inferred, not listed in notes.txt)",88,0,True
+SP1.csv,AHCh,,documented_rule,Closing odds: Market size of handicap (home team) (since 2019/2020),88,0,True
+SP1.csv,B365CAHH,,documented_rule,Closing odds: Bet365 Asian handicap home team odds,88,0,True
+SP1.csv,B365CAHA,,documented_rule,Closing odds: Bet365 Asian handicap away team odds,88,0,True
+SP1.csv,MaxCAHH,,documented_rule,Closing odds: Market maximum Asian handicap home team odds,88,0,True
+SP1.csv,MaxCAHA,,documented_rule,Closing odds: Market maximum Asian handicap away team odds,88,0,True
+SP1.csv,AvgCAHH,,documented_rule,Closing odds: Market average Asian handicap home team odds,88,0,True
+SP1.csv,AvgCAHA,,documented_rule,Closing odds: Market average Asian handicap away team odds,88,0,True
+SP1.csv,BFECAHH,,inferred_pattern,"Betfair Exchange closing Asian handicap home team odds (pattern inferred, not listed in notes.txt)",88,0,True
+SP1.csv,BFECAHA,,inferred_pattern,"Betfair Exchange closing Asian handicap away team odds (pattern inferred, not listed in notes.txt)",88,0,True

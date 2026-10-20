@@ -36,16 +36,57 @@ def is_results_file(f):
     return any(c in head.split(",") for c in ("FTHG", "HG"))
 
 
-def load_fixtures(files, registry):
-    rows = []
+def load_fixtures(files, registry, played, competitions):
+    """Read schedule CSVs (no result columns). Rows for other competitions, rows that cannot be
+    parsed, duplicates and pairings already played this season are dropped and counted."""
+    rows, dropped, seen = [], {"other_competition": 0, "bad_date": 0, "already_played": 0, "duplicate": 0}, set()
+    done = set(zip(played.competition, played.season, played.home_id, played.away_id))
     for f in files:
         df = pd.read_csv(sources.as_buffer(sources.decode(f.data)[0]), dtype=str)
         for r in df.itertuples(index=False):
+            comp = getattr(r, "Div", None)
+            if comp not in competitions:
+                dropped["other_competition"] += 1
+                continue
             d = pd.to_datetime(r.Date, dayfirst=True, errors="coerce")
-            rows.append({"file": os.path.basename(f.name), "competition": getattr(r, "Div", None), "date": str(d.date()) if pd.notna(d) else None,
-                         "kickoff": getattr(r, "Time", None), "home_id": registry.resolve(r.HomeTeam), "away_id": registry.resolve(r.AwayTeam),
+            if pd.isna(d):
+                dropped["bad_date"] += 1
+                continue
+            season = ingest.season_label(d.year if d.month >= 7 else d.year - 1)
+            h, a = registry.resolve(r.HomeTeam), registry.resolve(r.AwayTeam)
+            if (comp, season, h, a) in done:
+                dropped["already_played"] += 1
+                continue
+            if (comp, season, h, a) in seen:
+                dropped["duplicate"] += 1
+                continue
+            seen.add((comp, season, h, a))
+            rows.append({"file": os.path.basename(f.name), "competition": comp, "season": season, "date": str(d.date()),
+                         "kickoff": getattr(r, "Time", None), "home_id": h, "away_id": a,
                          "home_raw": r.HomeTeam, "away_raw": r.AwayTeam})
-    return rows
+    return sorted(rows, key=lambda x: (x["date"], x["kickoff"] or "", x["home_id"])), dropped
+
+
+def prematch_export(bt_frames):
+    """Walk-forward pre-match predictions (made with matches before each weekly batch only),
+    keyed by match_id, for the match detail view."""
+    if not bt_frames:
+        return None
+    bt = pd.concat(bt_frames, ignore_index=True)
+    stems = list(dict.fromkeys(bt.target))
+    r3 = lambda v: None if v is None or (isinstance(v, float) and np.isnan(v)) else round(float(v), 3)
+    p3 = lambda v: [r3(x) for x in v] if isinstance(v, (list, tuple, np.ndarray)) else None
+    cols = ["split", "p_ratings", "p_form", "p_market"] + [f"{s}_{k}" for s in stems for k in ("rh", "ra", "fh", "fa")]
+    rows = {}
+    g = bt[bt.target == "goals"].set_index("match_id")
+    for mid, r in g.iterrows():
+        rows[mid] = [r.split, p3(r.get("p_ratings")), p3(r.get("p_form")), p3(r.get("p_market"))]
+    for s in stems:
+        for r in bt[bt.target == s].itertuples(index=False):
+            rows.setdefault(r.match_id, [r.split, None, None, None])
+            rows[r.match_id].extend([r3(r.ratings_h), r3(r.ratings_a), r3(getattr(r, "form_h", None)), r3(getattr(r, "form_a", None))])
+    width = len(cols)
+    return {"columns": cols, "rows": {k: v + [None] * (width - len(v)) for k, v in rows.items()}}
 
 
 def target_plan(season_inv, drift, notes_entries):
@@ -140,7 +181,7 @@ def team_season_stats(m, stems):
 
 
 def matches_compact(m):
-    cols = ["date", "season", "competition", "home_id", "away_id", "home_goals", "away_goals", "ht_home_goals", "ht_away_goals",
+    cols = ["date", "kickoff", "season", "competition", "home_id", "away_id", "home_goals", "away_goals", "ht_home_goals", "ht_away_goals",
             "home_shots", "away_shots", "home_sot", "away_sot", "home_corners", "away_corners", "home_fouls", "away_fouls",
             "home_yellows", "away_yellows", "home_reds", "away_reds", "home_xg_undocumented", "away_xg_undocumented", "source_file"]
     cols = [c for c in cols if c in m.columns]
@@ -182,7 +223,6 @@ def main():
     raw.drop(columns=["_date"]).to_csv(os.path.join(OUT, "raw_combined_all_columns.csv"), index=False)
     col_table.to_csv(os.path.join(OUT, "column_mapping.csv"), index=False)
     season_inv = ingest.season_inventory(m_raw)
-    fixtures = load_fixtures(fixture_files, registry)
 
     # 4. team identities
     similar = registry.similarity_audit(set(m_raw.home_team_raw) | set(m_raw.away_team_raw))
@@ -196,6 +236,7 @@ def main():
     m = quality.apply_decisions(m_raw)
     m = m[~m.excluded].reset_index(drop=True)
     m.to_csv(os.path.join(OUT, "matches_unified.csv"), index=False)
+    fixtures, fixtures_dropped = load_fixtures(fixture_files, registry, m, set(m.competition))
 
     # 5. participation
     seasons_by_comp = {c: sorted(g.season.unique()) for c, g in m.groupby("competition")}
@@ -329,6 +370,8 @@ def main():
         "current": {"competition": comp, "season": current, "state": current_state, "as_of": str(m[m.season == current].date.max().date())},
         "files": file_inv, "file_season": file_season, "notes": {"entries": list(notes_entries.values()), "rules": notes_rules},
         "other_files": [f.name for f in other], "fixture_files": [f.name for f in fixture_files], "fixtures": fixtures,
+        "fixtures_dropped": fixtures_dropped, "fixtures_status": _read_json(os.path.join(OUT, "fixtures_status.json")),
+        "prematch": prematch_export(bt_frames),
         "schema": schema, "seasons": season_inv, "participation": part.where(part.notna(), None).to_dict("records"),
         "teams": teams_out, "team_similarity_pending": similar, "unknown_team_names": registry.pending,
         "quality": {"issues": issues, "drift": drift, "team_counts": quality.team_counts(m)},
@@ -371,6 +414,14 @@ def write_pages_site():
     for f in ("app.js", "ui.js", "data.js"):
         shutil.copyfile(os.path.join(APP, f), os.path.join(docs, f))
     open(os.path.join(docs, ".nojekyll"), "w").close()
+
+
+def _read_json(path):
+    try:
+        with open(path, encoding="utf-8") as fh:
+            return json.load(fh)
+    except (OSError, ValueError):
+        return None
 
 
 def _json_default(o):

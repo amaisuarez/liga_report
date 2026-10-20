@@ -132,3 +132,29 @@ def test_targets_reflect_coverage(app_data):
     assert not t["xg_undocumented"]["eligible"]          # undocumented and one season only
     assert not t["possession"]["eligible"]
     assert not t["offsides"]["eligible"]                # documented in notes but absent from the CSVs
+
+
+def test_prematch_probabilities_are_consistent(app_data):
+    pm = app_data["prematch"]
+    i = {c: k for k, c in enumerate(pm["columns"])}
+    played = {f"{r[3]}_{r[0].replace('-', '')}_{r[4]}_{r[5]}" for r in app_data["matches"]["rows"]}
+    assert set(pm["rows"]) <= played                      # every pre-match forecast belongs to a real match
+    for row in pm["rows"].values():
+        for col in ("p_ratings", "p_form", "p_market"):
+            if row[i[col]]:
+                assert sum(row[i[col]]) == pytest.approx(1, abs=0.005)
+
+
+def test_fixtures_skip_played_and_other_competitions(data):
+    m, _ = data
+    reg = teams.TeamRegistry(os.path.join(ROOT, "config", "teams.json"))
+    last = m.iloc[-1]
+    text = ("Div,Date,Time,HomeTeam,AwayTeam\n"
+            f"SP1,{last.date:%d/%m/%Y},20:00,{last.home_team_raw},{last.away_team_raw}\n"      # already played
+            "SP2,01/06/2027,20:00,Eibar,Burgos\n"                                               # no local results
+            f"SP1,01/06/2027,20:00,{last.away_team_raw},{last.home_team_raw}\n"
+            f"SP1,01/06/2027,20:00,{last.away_team_raw},{last.home_team_raw}\n")                # duplicate
+    f = sources.SourceFile("fx.csv", text.encode(), "test")
+    rows, dropped = build.load_fixtures([f], reg, m, {"SP1"})
+    assert dropped == {"other_competition": 1, "bad_date": 0, "already_played": 1, "duplicate": 1}
+    assert len(rows) == 1 and rows[0]["home_id"] == last.away_id and not reg.pending

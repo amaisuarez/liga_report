@@ -182,6 +182,7 @@
     window.scrollTo(0, 0);
     try {
       if (detail) renderPartido(decodeURIComponent(rest.join("/"))); else PAGES[id]();
+      const pg = $app.firstElementChild; if (pg) pg.classList.add("enter");   // animación de entrada solo al cambiar de sección
     } catch (err) {
       console.error(err);
       $app.innerHTML = `<div class="page"><div class="notice bad"><b>No se pudo mostrar esta sección.</b> Recarga la página; si el problema sigue, vuelve a preparar los datos con python3 -m pipeline.build.</div><a class="btn secondary" href="#inicio">Ir al inicio</a></div>`;
@@ -340,7 +341,7 @@
   const utc = (iso) => new Date(iso + "T12:00:00Z");
   const dshort = (iso) => DF.format(utc(iso));
   const dlong = (iso) => DL.format(utc(iso));
-  const fold = (s) => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  const fold = (s) => String(s).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
   // ---------------------------------------------------------------- partidos y pronósticos
   const mid = (r) => `${r[MI.competition]}_${r[MI.date].replace(/-/g, "")}_${r[MI.home_id]}_${r[MI.away_id]}`;
@@ -356,9 +357,9 @@
     return fl;
   }
   function probBar(p, h, a, opts = {}) {
-    const q = pct3(p), hit = opts.hit ?? -1;
+    const q = pct3(p), hit = opts.hit ?? -1, top = argmax(p), cls = (k, i) => k + (i === top ? " top" : "");
     return `<div class="pb${opts.lg ? " lg" : ""}" role="img" aria-label="Victoria de ${esc(name(h))} ${q[0]} %, empate ${q[1]} %, victoria de ${esc(name(a))} ${q[2]} %${hit >= 0 ? ". Recuadrado: lo que pasó" : ""}">${["H", "D", "A"].map((k, i) => `<i class="${k}${i === hit ? " hit" : ""}" style="flex:${p[i]}"></i>`).join("")}</div>
-      <div class="pbl" aria-hidden="true"><span class="h">1 · ${q[0]} %</span><span class="d">X · ${q[1]} %</span><span class="a">2 · ${q[2]} %</span></div>`;
+      <div class="pbl" aria-hidden="true"><span class="${cls("h", 0)}">1 · ${q[0]} %</span><span class="${cls("d", 1)}">X · ${q[1]} %</span><span class="${cls("a", 2)}">2 · ${q[2]} %</span></div>`;
   }
 
   const PM = D.prematch, PMI = PM ? PM.columns.reduce((o, c, i) => ((o[c] = i), o), {}) : {};
@@ -758,7 +759,7 @@
       <section class="card" aria-labelledby="rp1"><div class="card-h"><h2 id="rp1">Resultado probable</h2>${TAG_MODEL}</div>
         <div class="pbar" role="img" aria-label="Victoria local ${q3[0]} %, empate ${q3[1]} %, victoria visitante ${q3[2]} %">
           <div class="H" style="flex:${pH}">${pH > 0.1 ? "1" : ""}</div><div class="D" style="flex:${pD}">${pD > 0.1 ? "X" : ""}</div><div class="A" style="flex:${pA}">${pA > 0.1 ? "2" : ""}</div></div>
-        <div class="pvals"><div><span class="label">1 · Gana ${esc(name(h))}</span><b>${q3[0]} %</b></div><div><span class="label">X · Empate</span><b>${q3[1]} %</b></div><div><span class="label">2 · Gana ${esc(name(a))}</span><b>${q3[2]} %</b></div></div>
+        <div class="pvals">${[`1 · Gana ${esc(name(h))}`, "X · Empate", `2 · Gana ${esc(name(a))}`].map((l, i) => `<div${i === argmax([pH, pD, pA]) ? ' class="top"' : ""}><span class="label">${l}</span><b>${q3[i]} %</b></div>`).join("")}</div>
         <div class="row" style="gap:8px"><span class="chip ${clarity([pH, pD, pA]).cls}">${clarity([pH, pD, pA]).label}</span>${hint(esc(clarityHelp()))}</div>
         <p class="foot">Son estimaciones, no garantías. Cuota justa equivalente: ${nf(1 / pH, 2)} · ${nf(1 / pD, 2)} · ${nf(1 / pA, 2)}. ${modelLL ? `En las temporadas de prueba este modelo obtuvo una ${gl("logloss")} de ${nf(modelLL, 3)} (cuotas del mercado: ${nf(bt.market.log_loss, 3)}).` : ""}</p>
       </section>
@@ -1092,7 +1093,7 @@
       ${ticks.map((v) => `<line class="grid" x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${nf(v, step < 1 ? (step < 0.1 ? 2 : 1) : 0)}</text>`).join("")}
       ${xs.map((s, i) => `<text x="${x(i)}" y="${H - 8}" text-anchor="middle">${esc(s)}</text>`).join("")}
       ${series.map((s) => `<polyline fill="none" stroke="${color[s.cls]}" stroke-width="2.5" points="${s.vals.map((v, i) => `${x(i)},${y(v)}`).join(" ")}"/>
-        ${s.vals.map((v, i) => `<circle cx="${x(i)}" cy="${y(v)}" r="${i === s.vals.length - 1 ? 5 : 3.5}" fill="${color[s.cls]}"/>`).join("")}`).join("")}
+        ${s.vals.map((v, i) => `<circle cx="${x(i)}" cy="${y(v)}" r="${i === s.vals.length - 1 ? 5 : 3.5}" fill="${color[s.cls]}"><title>${esc(s.label)} · ${esc(xs[i])}: ${nf(v, dec)}</title></circle>`).join("")}`).join("")}
     </svg>${series.length > 1 ? `<div class="legend">${series.map((s) => `<span><i style="background:${color[s.cls]}"></i>${esc(s.label)}</span>`).join("")}</div>` : ""}`;
   }
   function niceStep(raw) { const p = Math.pow(10, Math.floor(Math.log10(raw || 1))); const f = raw / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p; }

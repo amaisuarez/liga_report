@@ -387,6 +387,7 @@ def main():
         fh.write(";\n")
     from . import reports
     reports.write_all(data, OUT)
+    stamp_assets(data["generated_at"])
     write_pages_site()
     log(f"Wrote {os.path.join(APP, 'data.js')} ({os.path.getsize(os.path.join(APP, 'data.js')) / 1e6:.2f} MB) and reports in {OUT}")
 
@@ -400,6 +401,18 @@ PAGES_HEAD = """<!doctype html>
 """
 
 
+def stamp_assets(version):
+    """Add ?v=<build time> to the script URLs so browsers (Safari caches file:// scripts) load the new data."""
+    import re
+    path = os.path.join(APP, "index.html")
+    with open(path, encoding="utf-8") as fh:
+        html = fh.read()
+    tag = re.sub(r"[^0-9]", "", version)
+    html = re.sub(r'src="(data|app|ui)\.js(\?v=[^"]*)?"', lambda m: f'src="{m.group(1)}.js?v={tag}"', html)
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write(html)
+
+
 def write_pages_site():
     """docs/ = standalone copy of app/ for GitHub Pages (Settings > Pages > branch main, folder /docs).
     app/index.html omits the document head because the artifact host adds one; Pages needs it."""
@@ -407,7 +420,7 @@ def write_pages_site():
     docs = os.path.join(ROOT, "docs")
     os.makedirs(docs, exist_ok=True)
     with open(os.path.join(APP, "index.html"), encoding="utf-8") as fh:
-        body = fh.read()
+        body = fh.read().replace('<meta charset="utf-8">\n', "", 1)   # PAGES_HEAD already declares it
     head, rest = body.split("</style>", 1)
     with open(os.path.join(docs, "index.html"), "w", encoding="utf-8") as fh:
         fh.write(PAGES_HEAD + head + "</style>\n</head>\n<body>" + rest + "</body>\n</html>\n")

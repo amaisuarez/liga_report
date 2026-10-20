@@ -1,7 +1,7 @@
 # Data inventory
 
 Source: `/Users/amaisuarez/Desktop/futdata`  
-Generated: 2026-10-20T10:40:52
+Generated: 2026-10-20T11:27:05
 
 ## Files
 

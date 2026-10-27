@@ -1987,3 +1987,14 @@ SP1.csv,86,2026-10-18,2026/27,SP1,15:15,Celta,Alaves,2,1,H,0.0,0.0,D,6.0,20.0,3.
 SP1.csv,87,2026-10-18,2026/27,SP1,17:30,Malaga,Sociedad,2,5,A,0.0,2.0,A,17.0,21.0,6.0,9.0,4,5,4,9,1,2,0,0,3.14,3.48,2.15,1.75,1.99,1.24,2.44,malaga,sociedad,SP1_20261018_malaga_sociedad,False
 SP1.csv,88,2026-10-18,2026/27,SP1,20:00,Real Madrid,Sevilla,4,1,H,2.0,0.0,H,15.0,11.0,8.0,5.0,1,2,10,14,2,2,0,0,1.23,6.27,10.23,1.4,2.8,2.28,0.75,real-madrid,sevilla,SP1_20261018_real-madrid_sevilla,False
 SP1.csv,89,2026-10-19,2026/27,SP1,20:00,Getafe,Vallecano,1,1,D,0.0,1.0,A,12.0,21.0,4.0,5.0,8,8,12,9,6,3,1,0,2.85,2.98,2.62,2.51,1.49,0.63,2.14,getafe,vallecano,SP1_20261019_getafe_vallecano,False
+SP1.csv,90,2026-10-21,2026/27,SP1,19:00,Levante,Ath Bilbao,3,1,H,2.0,0.0,H,12.0,21.0,7.0,4.0,3,9,13,12,2,1,0,1,3.42,3.29,2.15,1.91,1.83,1.98,1.9,levante,ath-bilbao,SP1_20261021_levante_ath-bilbao,False
+SP1.csv,91,2026-10-23,2026/27,SP1,20:00,Alaves,Malaga,1,1,D,0.0,1.0,A,18.0,7.0,4.0,3.0,7,2,14,12,2,1,0,0,1.62,3.77,5.65,2.0,1.77,1.84,0.71,alaves,malaga,SP1_20261023_alaves_malaga,False
+SP1.csv,92,2026-10-24,2026/27,SP1,13:00,Vallecano,Elche,0,3,A,0.0,2.0,A,18.0,16.0,5.0,9.0,3,3,15,11,3,3,0,0,1.77,3.72,4.36,1.82,1.91,1.52,2.52,vallecano,elche,SP1_20261024_vallecano_elche,False
+SP1.csv,93,2026-10-24,2026/27,SP1,15:15,Santander,Espanol,2,1,H,0.0,0.0,D,23.0,11.0,9.0,1.0,9,4,10,17,3,4,0,0,2.37,3.6,2.76,1.63,2.21,2.27,0.52,santander,espanyol,SP1_20261024_santander_espanyol,False
+SP1.csv,94,2026-10-24,2026/27,SP1,17:30,Valencia,Villarreal,1,2,A,1.0,0.0,H,9.0,19.0,5.0,3.0,6,9,18,9,5,3,1,1,3.16,3.57,2.15,1.7,2.08,1.13,1.5,valencia,villarreal,SP1_20261024_valencia_villarreal,False
+SP1.csv,95,2026-10-24,2026/27,SP1,20:00,Ath Madrid,La Coruna,1,0,H,0.0,0.0,D,20.0,15.0,4.0,5.0,3,4,11,6,4,2,0,0,1.26,5.81,10.67,1.54,2.38,1.41,1.67,ath-madrid,la-coruna,SP1_20261024_ath-madrid_la-coruna,False
+SP1.csv,96,2026-10-25,2026/27,SP1,13:00,Ath Bilbao,Getafe,4,0,H,2.0,0.0,H,11.0,7.0,4.0,1.0,2,4,11,15,1,3,0,1,1.56,3.81,6.11,2.24,1.6,0.74,0.41,ath-bilbao,getafe,SP1_20261025_ath-bilbao_getafe,False
+SP1.csv,97,2026-10-25,2026/27,SP1,15:15,Celta,Betis,0,0,D,0.0,0.0,D,12.0,15.0,4.0,2.0,3,4,9,12,2,1,0,0,2.89,3.37,2.35,1.79,1.94,0.76,1.15,celta,betis,SP1_20261025_celta_betis,False
+SP1.csv,98,2026-10-25,2026/27,SP1,17:30,Sociedad,Levante,2,1,H,2.0,1.0,H,17.0,6.0,3.0,2.0,2,3,14,13,1,3,0,0,1.64,4.08,4.74,1.56,2.32,2.22,0.48,sociedad,levante,SP1_20261025_sociedad_levante,False
+SP1.csv,99,2026-10-25,2026/27,SP1,20:00,Barcelona,Real Madrid,1,2,A,0.0,1.0,A,18.0,10.0,6.0,5.0,6,6,15,11,3,3,0,0,1.6,5.23,3.98,1.16,4.78,1.19,1.94,barcelona,real-madrid,SP1_20261025_barcelona_real-madrid,False
+SP1.csv,100,2026-10-26,2026/27,SP1,20:00,Sevilla,Osasuna,2,0,H,1.0,0.0,H,17.0,10.0,7.0,2.0,7,4,11,8,1,2,0,0,1.92,3.36,4.0,2.1,1.67,1.14,0.77,sevilla,osasuna,SP1_20261026_sevilla_osasuna,False

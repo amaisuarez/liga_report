@@ -1,7 +1,7 @@
 # Data inventory
 
 Source: `/Users/amaisuarez/Desktop/futdata`  
-Generated: 2026-10-20T11:27:05
+Generated: 2026-10-27T09:16:03
 
 ## Files
 
@@ -12,7 +12,7 @@ Generated: 2026-10-20T11:27:05
 | SP1-4.csv | SP1 | 2023/24 | 380 | 105 | utf-8 | ',' | 2023-08-11 → 2024-05-26 | dd/mm/yyyy |
 | SP1-5.csv | SP1 | 2022/23 | 380 | 105 | utf-8 | ',' | 2022-08-12 → 2023-06-04 | dd/mm/yyyy |
 | SP1-6.csv | SP1 | 2021/22 | 380 | 105 | utf-8 | ',' | 2021-08-13 → 2022-05-22 | dd/mm/yyyy |
-| SP1.csv | SP1 | 2026/27 | 88 | 113 | utf-8-sig | ',' | 2026-08-15 → 2026-10-19 | dd/mm/yyyy |
+| SP1.csv | SP1 | 2026/27 | 99 | 113 | utf-8-sig | ',' | 2026-08-15 → 2026-10-26 | dd/mm/yyyy |
 
 Fixture schedule files: none supplied. Future fixtures must be created manually; none are invented.
 
@@ -25,7 +25,7 @@ Fixture schedule files: none supplied. Future fixtures must be created manually;
 | SP1 | 2023/24 | 380 | 20 | complete | 100% | 2023-08-11 → 2024-05-26 |
 | SP1 | 2024/25 | 380 | 20 | complete | 100% | 2024-08-15 → 2025-05-25 |
 | SP1 | 2025/26 | 380 | 20 | complete | 100% | 2025-08-15 → 2026-05-24 |
-| SP1 | 2026/27 | 88 | 20 | partial (in progress) | 23% | 2026-08-15 → 2026-10-19 |
+| SP1 | 2026/27 | 99 | 20 | partial (in progress) | 26% | 2026-08-15 → 2026-10-26 |
 
 ## Statistical coverage (share of matches with the statistic)
 

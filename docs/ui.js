@@ -155,7 +155,7 @@
 
   function buildNav() {
     ["brand-mark-1", "brand-mark-2"].forEach((id) => { const e = $(id); if (e) e.innerHTML = BRAND_MARK; });
-    $("sidenav").innerHTML = NAV.map((n, i) => `${i === 4 ? '<div class="sep" role="presentation"></div>' : ""}<a href="#${n.id}" data-nav="${n.id}">${icon(n.icon)}<span>${n.label}</span></a>`).join("");
+    $("sidenav").innerHTML = NAV.map((n, i) => `${i === 0 ? '<span class="navgrp" aria-hidden="true">Principal</span>' : ""}${i === 4 ? '<div class="sep" role="presentation"></div><span class="navgrp" aria-hidden="true">Análisis y datos</span>' : ""}<a href="#${n.id}" data-nav="${n.id}">${icon(n.icon)}<span>${n.label}</span></a>`).join("");
     $("bottomnav").innerHTML = NAV.filter((n) => n.bottom).map((n) => `<a href="#${n.id}" data-nav="${n.id}"><span class="ico">${icon(n.icon)}</span><span>${n.short || n.label}</span></a>`).join("")
       + `<button type="button" id="morebtn" aria-expanded="false" aria-controls="moresheet"><span class="ico">${icon("more")}</span><span>Más</span></button>`;
     $("moresheet").innerHTML = NAV.filter((n) => !n.bottom).map((n) => `<a href="#${n.id}" data-nav="${n.id}">${icon(n.icon)}<span>${n.label}</span></a>`).join("");
@@ -529,7 +529,7 @@
           <a class="sub" href="#modelos" style="color:var(--accent-ink);font-weight:700;text-decoration:none">Ver métricas completas →</a></div></div>
         ${rows.length ? `<div class="calib" role="list" aria-label="Acierto del favorito según la claridad del pronóstico">${rows.map((x) => { const r = c[x.k].hit / c[x.k].n;
           return `<div class="calib-r" role="listitem"><div class="nm"><b>${x.label}</b><span>${c[x.k].n} partidos</span></div><div class="bt" title="${esc(x.label)}: ${c[x.k].hit} de ${c[x.k].n}"><i style="width:${(100 * r).toFixed(1)}%"></i></div><span class="v">${pc(r)}</span></div>`; }).join("")}
-          <p class="foot">Cuanto más claro es el favorito, más a menudo gana. ${hint(esc(clarityHelp()))}</p></div>` : ""}
+          <div class="foot">Cuanto más claro es el favorito, más a menudo gana. ${hint(esc(clarityHelp()))}</div></div>` : ""}
       </div></section>`;
   }
 
@@ -787,7 +787,8 @@
         <div class="card-h"><span class="label" id="r-h">${esc(compName(comp))} · ${esc(season)}${date ? " · " + fdate(date) : ""}</span>
           <span class="row" style="gap:6px">${outside.length ? '<span class="chip bad">Hipotético</span>' : !isCurrent ? '<span class="chip">Histórico</span>' : ""}<span class="chip acc">${esc(modelLabel)}</span></span></div>
         <div class="match"><div class="side-t h">${crest(h, "lg")}<span class="label">Local</span><span class="tn">${esc(name(h))}</span>${formChips(lastResults(season, h))}</div>
-          <span class="vs">vs</span>
+          <div class="sboard"><span class="label">Marcador más probable</span><b>${cells[0][0]}<span class="d">–</span>${cells[0][1]}</b><span class="sub">${pc(cells[0][2], 1)} · <span class="vs">vs</span></span>
+            <div class="conf" role="img" aria-label="Confianza: ${clarity([pH, pD, pA]).label}, resultado más probable ${q3[argmax([pH, pD, pA])]} %"><span class="conf-l">Confianza</span><span class="conf-m"><i style="width:${(100 * Math.max(pH, pD, pA)).toFixed(1)}%"></i></span><span class="chip ${clarity([pH, pD, pA]).cls}">${clarity([pH, pD, pA]).label}</span></div></div>
           <div class="side-t a">${crest(a, "lg")}<span class="label">Visitante</span><span class="tn">${esc(name(a))}</span>${formChips(lastResults(season, a))}</div></div>
       </section>
       <section class="card" aria-labelledby="rp1"><div class="card-h"><h2 id="rp1">Resultado probable</h2>${TAG_MODEL}</div>
@@ -987,10 +988,10 @@
         <section class="card" aria-labelledby="ms-h"><div class="card-h"><h2 id="ms-h">Estadísticas del partido</h2>${TAG_REAL}</div>
           <div class="teamkey"><span class="h">${esc(name(h))}</span><span class="a">${esc(name(a))}</span></div>
           <div>${statRows}</div>
-          ${xgH != null && xgA != null ? `<p class="foot">xG en el archivo: ${nf(xgH, 2)} – ${nf(xgA, 2)} ${hint(esc(STAT_HELP.xg_undocumented))}</p>` : ""}
+          ${xgH != null && xgA != null ? `<div class="foot">xG en el archivo: ${nf(xgH, 2)} – ${nf(xgA, 2)} ${hint(esc(STAT_HELP.xg_undocumented))}</div>` : ""}
           <p class="foot">Datos de football-data.co.uk. La posesión no está en los archivos.</p></section>
         <section class="card" aria-labelledby="pp-h"><div class="card-h"><h2 id="pp-h">Pronóstico previo</h2>${TAG_MODEL}</div>
-          ${pm ? `<p class="sub">Calculado solo con los partidos jugados antes de esa semana, con el modelo «${esc(MODEL[pm.model].name)}». El tramo recuadrado es lo que pasó. ${hint("Es la validación cronológica: para cada semana se reentrena el modelo sin ver esos partidos ni los posteriores. Así se comprueba cómo habría acertado de verdad.")}</p>
+          ${pm ? `<div class="sub">Calculado solo con los partidos jugados antes de esa semana, con el modelo «${esc(MODEL[pm.model].name)}». El tramo recuadrado es lo que pasó. ${hint("Es la validación cronológica: para cada semana se reentrena el modelo sin ver esos partidos ni los posteriores. Así se comprueba cómo habría acertado de verdad.")}</div>
             ${probBar(pm.p, h, a, { hit: k, lg: true })}
             <div class="minis">
               <div><span class="label">Probabilidad del resultado real</span><b>${pct3(pm.p)[k]} %</b></div>

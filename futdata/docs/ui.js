@@ -1,4 +1,4 @@
-/* LaLiga Match Lab — interfaz en español. Usa los datos reales de data.js (generado por
+/* Match Lab — interfaz en español. Usa los datos reales de data.js (generado por
    pipeline/build.py) y las funciones de modelo de app.js (FM). Las predicciones guardadas,
    los partidos creados y las preferencias se guardan solo en este navegador (localStorage). */
 (function () {
@@ -40,6 +40,9 @@
     ball: '<circle cx="12" cy="12" r="9"/><path d="m12 7 4 3-1.5 4.5h-5L8 10z"/><path d="M12 7V3.5M16 10l3.5-1.5M14.5 14.5l2 3.5M9.5 14.5l-2 3.5M8 10 4.5 8.5"/>',
   };
   const icon = (n) => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${ICON[n]}</svg>`;
+  // Marca propia: hexágono con una línea de tendencia. Ilustración de campo: geometría genérica, sin marcas de terceros.
+  const BRAND_MARK = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6 20.2 7.3v9.4L12 21.4 3.8 16.7V7.3z"/><path d="m7.2 14.2 3-3.2 2.6 2.2 4-4.6"/><circle cx="16.8" cy="8.6" r=".6" fill="currentColor"/></svg>';
+  const PITCH = '<svg class="pitch" viewBox="0 0 400 260" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="392" height="252" rx="6"/><path d="M200 4v252"/><circle cx="200" cy="130" r="40"/><circle cx="200" cy="130" r="3" fill="currentColor"/><rect x="4" y="70" width="58" height="120"/><rect x="4" y="102" width="20" height="56"/><rect x="338" y="70" width="58" height="120"/><rect x="376" y="102" width="20" height="56"/><path d="M62 104a30 30 0 0 1 0 52M338 104a30 30 0 0 0 0 52"/></svg>';
 
   // ---------------------------------------------------------------- textos
   const STAT = {
@@ -151,7 +154,7 @@
   const LEGACY = { predict: "predecir", seasons: "equipos", data: "datos", validation: "modelos" };
 
   function buildNav() {
-    ["brand-mark-1", "brand-mark-2"].forEach((id) => { const e = $(id); if (e) e.innerHTML = icon("ball"); });
+    ["brand-mark-1", "brand-mark-2"].forEach((id) => { const e = $(id); if (e) e.innerHTML = BRAND_MARK; });
     $("sidenav").innerHTML = NAV.map((n, i) => `${i === 4 ? '<div class="sep" role="presentation"></div>' : ""}<a href="#${n.id}" data-nav="${n.id}">${icon(n.icon)}<span>${n.label}</span></a>`).join("");
     $("bottomnav").innerHTML = NAV.filter((n) => n.bottom).map((n) => `<a href="#${n.id}" data-nav="${n.id}"><span class="ico">${icon(n.icon)}</span><span>${n.short || n.label}</span></a>`).join("")
       + `<button type="button" id="morebtn" aria-expanded="false" aria-controls="moresheet"><span class="ico">${icon("more")}</span><span>Más</span></button>`;
@@ -159,7 +162,7 @@
     $("morebtn").addEventListener("click", () => toggleMore());
     $("moresheet").addEventListener("click", (e) => { if (e.target.closest("a")) toggleMore(false); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") toggleMore(false); });
-    if (D) $("sidefoot").innerHTML = `<span class="chip ok">Datos hasta el ${fdate(D.current.as_of)}</span><span>Temporada ${esc(D.current.season)} · ${esc(compName(D.current.competition))}</span>`;
+    if (D) $("sidefoot").innerHTML = `<span class="chip ok">Datos hasta el ${fdate(D.current.as_of)}</span><span>Temporada ${esc(D.current.season)} · ${esc(compName(D.current.competition))}</span><span class="disc">Proyecto independiente de analítica. Sin afiliación con ninguna liga, competición ni club; los nombres se usan solo para identificar.</span>`;
   }
   function toggleMore(force) {
     const sheet = $("moresheet"), btn = $("morebtn");
@@ -233,7 +236,7 @@
   const MI = D.matches.columns.reduce((o, c, i) => ((o[c] = i), o), {});
   const matches = D.matches.rows;
   const name = (t) => (D.teams[t] ? D.teams[t].display : t);
-  const compName = (c) => ({ SP1: "LaLiga · Primera División", SP2: "Segunda División" }[c] || (D.competitions[c] && D.competitions[c].name) || c);
+  const compName = (c) => ({ SP1: "Primera División · España", SP2: "Segunda División" }[c] || (D.competitions[c] && D.competitions[c].name) || c);
   const seasonsOf = (comp) => D.seasons.filter((s) => s.competition === comp).map((s) => s.season);
   const seasonInfo = (comp, season) => D.seasons.find((s) => s.competition === comp && s.season === season);
   const participants = (comp, season) => D.participation.filter((p) => p.competition === comp && p.season === season);
@@ -315,7 +318,7 @@
   const customs = () => store.get("custom", []);
 
   // ---------------------------------------------------------------- identidad visual de los equipos
-  // Monogramas con los colores de cada club: sirven para reconocerlos de un vistazo; no son escudos oficiales.
+  // Monogramas neutros: código de tres letras sobre un patrón geométrico propio. No usan escudos ni colores de los clubes.
   const CLUB = {
     alaves: ["ALA", "#1d4fa0", "#ffffff"], almeria: ["ALM", "#c8102e", "#ffffff"], "ath-bilbao": ["ATH", "#d81e2c", "#ffffff"],
     "ath-madrid": ["ATM", "#cb3524", "#ffffff"], barcelona: ["BAR", "#a50044", "#ffd23f"], betis: ["BET", "#00954c", "#ffffff"],
@@ -328,9 +331,10 @@
     sociedad: ["RSO", "#0067b1", "#ffffff"], valencia: ["VAL", "#ffffff", "#111111"], valladolid: ["VLL", "#6c2c8a", "#ffffff"],
     vallecano: ["RAY", "#ffffff", "#d52b1e"], villarreal: ["VIL", "#ffe667", "#005187"],
   };
+  const crestPat = (t) => { let x = 0; for (const ch of String(t)) x = (x * 31 + ch.charCodeAt(0)) >>> 0; return x % 6; };
   const crest = (t, size = "") => {
-    const c = CLUB[t] || [name(t).normalize("NFD").replace(/[^A-Za-z]/g, "").slice(0, 3).toUpperCase(), "", ""];
-    return `<span class="crest ${size}"${c[1] ? ` style="--c1:${c[1]};--c2:${c[2]}"` : ""} aria-hidden="true">${c[0]}</span>`;
+    const code = CLUB[t] ? CLUB[t][0] : name(t).normalize("NFD").replace(/[^A-Za-z]/g, "").slice(0, 3).toUpperCase();
+    return `<span class="crest ${size}" data-p="${crestPat(t)}" aria-hidden="true">${code}</span>`;
   };
   const tm = (t, size = "sm") => `<span class="tm">${crest(t, size)}<span>${esc(name(t))}</span></span>`;
   const hint = (txt) => `<details class="hint"><summary aria-label="Más información">?</summary><span class="hp">${txt}</span></details>`;
@@ -389,7 +393,9 @@
       const dist = FM.distribution(g.draws, D.models.goals.nb_size, 10, true);
       let pH = 0, pD = 0, pA = 0;
       dist.G.forEach((row, i) => row.forEach((v, j) => { if (i > j) pH += v; else if (i === j) pD += v; else pA += v; }));
-      out = { p: [pH, pD, pA], xg: g.mean, model: g.used };
+      let best = [0, 0], bp = -1;
+      dist.G.forEach((row, i) => row.forEach((v, j) => { if (v > bp) { bp = v; best = [i, j]; } }));
+      out = { p: [pH, pD, pA], xg: g.mean, model: g.used, score: best, scoreP: bp };
     }
     FC.set(key, out);
     return out;
@@ -416,7 +422,7 @@
     return `Indica cuánto destaca el resultado más probable: 55 % o más es «favorito claro», de 42 % a 55 % «favorito ajustado» y por debajo «partido abierto». Es una estimación, no una garantía.${lines.length ? ` En las temporadas de prueba: ${lines.join(" ")}` : ""}`;
   }
 
-  /** Agrupa partidos en semanas de martes a lunes: una jornada de LaLiga suele ir de viernes a lunes. */
+  /** Agrupa partidos en semanas de martes a lunes: una jornada de Primera suele ir de viernes a lunes. */
   const weekOf = (iso) => { const d = utc(iso); d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 5) % 7)); return d.toISOString().slice(0, 10); };
   function dateBlocks(items, getDate) {
     const out = [];
@@ -448,18 +454,25 @@
       if (top === k && k === 1) v[0] = "Acertó el empate";
       pred = `<div class="mc-pred"><div class="lbl"><span>Pronóstico previo: ${q} % a este resultado</span><span class="chip ${v[1]}">${v[0]}</span></div>${probBar(pm.p, h, a, { hit: k })}</div>`;
     }
+    const st = [["home_xg_undocumented", "away_xg_undocumented", "xG", 1], ["home_shots", "away_shots", "Remates", 0], ["home_yellows", "away_yellows", "Amarillas", 0]]
+      .filter(([ch, ca]) => MI[ch] != null && r[MI[ch]] != null && r[MI[ca]] != null)
+      .map(([ch, ca, lbl, d]) => `<div><b><span class="h">${d ? nf(r[MI[ch]], d) : r[MI[ch]]}</span><span class="s">·</span><span class="a">${d ? nf(r[MI[ca]], d) : r[MI[ca]]}</span></b><span>${lbl}</span></div>`).join("");
     return `<a class="mcard" href="#partido/${esc(mid(r))}" aria-label="${esc(name(h))} ${hg}, ${esc(name(a))} ${ag}, ${esc(dshort(r[MI.date]))}. Abrir la ficha del partido">
       <div class="mc-top"><span>${esc(dshort(r[MI.date]))}${r[MI.kickoff] ? " · " + esc(r[MI.kickoff]) : ""}</span><span class="tag real">Final</span></div>
-      <div class="mc-team${k === 2 ? " lost" : ""}">${crest(h)}<span class="nm">${esc(name(h))}</span><b class="sc">${hg}</b></div>
-      <div class="mc-team${k === 0 ? " lost" : ""}">${crest(a)}<span class="nm">${esc(name(a))}</span><b class="sc">${ag}</b></div>${pred}</a>`;
+      <div class="mc-face"><div class="mc-side h${k === 2 ? " lost" : ""}">${crest(h)}<span class="nm">${esc(name(h))}</span><span class="role">Local</span></div>
+        <div class="mc-score"><b>${hg}<span class="d">–</span>${ag}</b><small>Resultado</small></div>
+        <div class="mc-side a${k === 0 ? " lost" : ""}">${crest(a)}<span class="nm">${esc(name(a))}</span><span class="role">Visitante</span></div></div>
+      ${st ? `<div class="mc-stats" aria-hidden="true">${st}</div>` : ""}${pred}</a>`;
   }
   function upcomingCard(f, ref) {
     const fc = forecast(f.home_id, f.away_id, f.date), c = fc && clarity(fc.p);
-    return `<button type="button" class="mcard" data-up="${ref}" aria-label="${esc(name(f.home_id))} contra ${esc(name(f.away_id))}, ${esc(dshort(f.date))}. Abrir la predicción detallada">
-      <div class="mc-top"><span>${esc(dshort(f.date))}${f.kickoff ? " · " + esc(f.kickoff) : ""}</span><span class="chip">${ref.startsWith("c") ? "Creado por ti" : "Próximo"}</span></div>
-      <div class="mc-team">${crest(f.home_id)}<span class="nm">${esc(name(f.home_id))}</span><b class="sc xg" title="Goles esperados">${fc ? nf(fc.xg[0], 1) : ""}</b></div>
-      <div class="mc-team">${crest(f.away_id)}<span class="nm">${esc(name(f.away_id))}</span><b class="sc xg" title="Goles esperados">${fc ? nf(fc.xg[1], 1) : ""}</b></div>
-      ${fc ? `<div class="mc-pred"><div class="lbl"><span>Estimación · a la derecha, goles esperados</span><span class="chip ${c.cls}">${c.label}</span></div>${probBar(fc.p, f.home_id, f.away_id)}</div>` : '<p class="sub">No se puede estimar este partido con los datos disponibles.</p>'}
+    return `<button type="button" class="mcard up" data-up="${ref}" aria-label="${esc(name(f.home_id))} contra ${esc(name(f.away_id))}, ${esc(dshort(f.date))}. Abrir la predicción detallada">
+      <div class="mc-top"><span>${esc(dshort(f.date))}${f.kickoff ? " · " + esc(f.kickoff) : ""}</span><span class="row" style="gap:6px"><span class="tag model">Pronóstico</span><span class="chip">${ref.startsWith("c") ? "Creado por ti" : "Próximo"}</span></span></div>
+      <div class="mc-face"><div class="mc-side h">${crest(f.home_id)}<span class="nm">${esc(name(f.home_id))}</span><span class="role">Local</span></div>
+        ${fc ? `<div class="mc-score pred"><span class="box"><b>${fc.score[0]}<span class="d">–</span>${fc.score[1]}</b></span><small>Marcador más probable · ${pc(fc.scoreP)}</small></div>` : '<div class="mc-score"><b class="vs">vs</b></div>'}
+        <div class="mc-side a">${crest(f.away_id)}<span class="nm">${esc(name(f.away_id))}</span><span class="role">Visitante</span></div></div>
+      ${fc ? `<div class="mc-stats" aria-hidden="true"><div><b><span class="h">${nf(fc.xg[0], 1)}</span><span class="s">·</span><span class="a">${nf(fc.xg[1], 1)}</span></b><span>Goles esperados</span></div><div><b>${pct3(fc.p)[argmax(fc.p)]} %</b><span>${["Gana local", "Empate", "Gana visitante"][argmax(fc.p)]}</span></div><div><b>${esc(MODEL[fc.model] ? MODEL[fc.model].name.split(" ")[0] : fc.model)}</b><span>Modelo</span></div></div>
+        <div class="mc-pred"><div class="lbl"><span>Probabilidades 1 · X · 2</span><span class="chip ${c.cls}">${c.label}</span></div>${probBar(fc.p, f.home_id, f.away_id)}</div>` : '<p class="sub">No se puede estimar este partido con los datos disponibles.</p>'}
     </button>`;
   }
   function bindUpcoming(list) {
@@ -502,6 +515,24 @@
     return { n: rows.length, gpm: g / n, hw: hw / n, dr: dr / n };
   }
 
+  /** Resumen visual del rendimiento del modelo: datos de la validación cronológica (prematch), nada inventado. */
+  function perfBlock(fav, season) {
+    const c = calibration(), rows = CLAR.filter((x) => c[x.k].n);
+    let n = 0, hit = 0; rows.forEach((x) => { n += c[x.k].n; hit += c[x.k].hit; });
+    if (!n && !fav.n) return "";
+    const v = n ? hit / n : fav.hit / fav.n;
+    return `<section class="card" aria-labelledby="perf-h"><div class="card-h"><h2 id="perf-h">Rendimiento del modelo</h2><span class="tag model">Validación cronológica</span></div>
+      <div class="perf">
+        <div class="perf-big"><div class="ring" style="--v:${(100 * v).toFixed(1)};width:116px;height:116px" role="img" aria-label="Favorito acertado ${pc(v)}"><div><b>${pc(v)}</b><span>Favorito<br>acertado</span></div></div>
+          <div class="stack" style="gap:6px"><p class="sub">${n ? `En las temporadas de prueba, el resultado más probable según el pronóstico previo se cumplió en <b>${hit}</b> de <b>${n}</b> partidos.` : ""}</p>
+          ${fav.n ? `<p class="sub">Temporada ${esc(season)}: ${fav.hit} de ${fav.n}${fav.mkN ? ` · casas de apuestas: ${fav.mk} de ${fav.mkN}` : ""}.</p>` : ""}
+          <a class="sub" href="#modelos" style="color:var(--accent-ink);font-weight:700;text-decoration:none">Ver métricas completas →</a></div></div>
+        ${rows.length ? `<div class="calib" role="list" aria-label="Acierto del favorito según la claridad del pronóstico">${rows.map((x) => { const r = c[x.k].hit / c[x.k].n;
+          return `<div class="calib-r" role="listitem"><div class="nm"><b>${x.label}</b><span>${c[x.k].n} partidos</span></div><div class="bt" title="${esc(x.label)}: ${c[x.k].hit} de ${c[x.k].n}"><i style="width:${(100 * r).toFixed(1)}%"></i></div><span class="v">${pc(r)}</span></div>`; }).join("")}
+          <p class="foot">Cuanto más claro es el favorito, más a menudo gana. ${hint(esc(clarityHelp()))}</p></div>` : ""}
+      </div></section>`;
+  }
+
   function renderInicio() {
     const comp = D.current.competition, season = D.current.season;
     const cur = seasonInfo(comp, season);
@@ -529,10 +560,11 @@
 
     $app.innerHTML = `<div class="page">
       ${FRESH ? `<div class="notice ok" role="status"><b>Datos actualizados desde tu última visita.</b> ${FRESH} resultado${FRESH > 1 ? "s" : ""} nuevo${FRESH > 1 ? "s" : ""}; ahora llegan hasta el ${fdate(D.current.as_of)}.</div>` : ""}
-      <section class="hero" aria-labelledby="hero-h">
-        <div class="head"><span class="eyebrow">${esc(compName(comp))}</span><h1 id="hero-h">Temporada ${esc(season)}</h1>
+      <section class="hero" aria-labelledby="hero-h">${PITCH}
+        <div class="hero-grid"><div class="head"><span class="eyebrow">${esc(compName(comp))}</span><h1 id="hero-h">Temporada <span>${esc(season)}</span></h1>
           <p class="lede">${cur.state === "complete" ? `Temporada completa: ${cur.matches} partidos.` : `${cur.matches} de ${cur.expected_matches_double_round_robin} partidos jugados.`} Último resultado incluido: ${esc(dlong(D.current.as_of))}.</p></div>
-        <div class="progress" role="img" aria-label="${pc(cur.completeness)} de la temporada jugada"><i style="width:${100 * cur.completeness}%"></i></div>
+          <div class="ring" style="--v:${(100 * cur.completeness).toFixed(1)}" role="img" aria-label="${pc(cur.completeness)} de la temporada jugada"><div><b>${pc(cur.completeness)}</b><span>Temporada<br>jugada</span></div></div></div>
+        <div class="progress" aria-hidden="true"><i style="width:${100 * cur.completeness}%"></i></div>
         <div class="row" style="gap:8px"><span class="chip ok">Datos hasta el ${fdate(D.current.as_of)}</span><span class="chip">Fuente: football-data.co.uk</span><span class="chip ${nErr ? "warn" : ""}">${nErr ? `${nErr} errores en la revisión de datos` : "Datos revisados, sin errores"}</span></div>
         <p class="sub">${esc(calendarStatus())}</p>
         <div class="row"><a class="btn primary" href="#predecir">${icon("target")} Predecir un partido</a><a class="btn secondary" href="#partidos">${icon("calendar")} Explorar partidos</a></div>
@@ -542,9 +574,11 @@
         <div class="stat"><span class="label">Goles por partido</span><b>${nf(A.gpm, 2)}</b><span class="delta">${delta(A.gpm, B.gpm, 2)}</span></div>
         <div class="stat"><span class="label">Victorias locales</span><b>${pc(A.hw)}</b><span class="delta">${delta(A.hw, B.hw, 0, "%")}</span></div>
         <div class="stat"><span class="label">Empates</span><b>${pc(A.dr)}</b><span class="delta">${delta(A.dr, B.dr, 0, "%")}</span></div>
-        <div class="stat"><span class="label">Favorito del modelo acertado ${hint(`Partidos de ${esc(season)} en los que el resultado más probable según el pronóstico previo fue el que ocurrió. Cada pronóstico se calculó solo con partidos anteriores a esa semana. Como referencia, el favorito de las casas de apuestas acertó ${fav.mkN ? `${fav.mk} de ${fav.mkN}` : "–"}.`)}</span>
+        <div class="stat hl"><span class="label">Favorito del modelo acertado ${hint(`Partidos de ${esc(season)} en los que el resultado más probable según el pronóstico previo fue el que ocurrió. Cada pronóstico se calculó solo con partidos anteriores a esa semana. Como referencia, el favorito de las casas de apuestas acertó ${fav.mkN ? `${fav.mk} de ${fav.mkN}` : "–"}.`)}</span>
           <b>${fav.n ? pc(fav.hit / fav.n) : "–"}</b><span class="delta">${fav.hit} de ${fav.n} partidos${fav.mkN ? ` · mercado: ${pc(fav.mk / fav.mkN)}` : ""}</span></div>
       </div>
+
+      ${perfBlock(fav, season)}
 
       <div class="cols main-side">
         <div class="stack" style="gap:22px">
@@ -940,7 +974,7 @@
 
     $app.innerHTML = `<div class="page">
       <div class="row" style="justify-content:space-between"><a class="btn quiet small" href="#partidos">← Volver a partidos</a><span class="row" style="gap:6px">${TAG_REAL}<span class="chip">${esc(compName(r[MI.competition]))} · ${esc(season)}</span></span></div>
-      <section class="hero" aria-labelledby="m-h">
+      <section class="hero" aria-labelledby="m-h">${PITCH}
         <h1 id="m-h" class="sr-only">${esc(name(h))} ${hg}-${ag} ${esc(name(a))}</h1>
         <div class="scorehead">
           <div class="t h">${crest(h, "lg")}<b>${esc(name(h))}</b><button type="button" class="btn quiet small" data-team="${esc(h)}">Ficha del equipo</button></div>
@@ -1092,6 +1126,7 @@
     return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(series.map((s) => `${s.label}: ${s.vals.map((v, i) => xs[i] + " " + nf(v, dec)).join(", ")}`).join(". "))}">
       ${ticks.map((v) => `<line class="grid" x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${nf(v, step < 1 ? (step < 0.1 ? 2 : 1) : 0)}</text>`).join("")}
       ${xs.map((s, i) => `<text x="${x(i)}" y="${H - 8}" text-anchor="middle">${esc(s)}</text>`).join("")}
+      ${series.map((s) => { const pts = s.vals.map((v, i) => (v == null ? null : [x(i), y(v)])).filter(Boolean); return pts.length > 1 ? `<polygon class="area" fill="${color[s.cls]}" points="${pts[0][0]},${H - B} ${pts.map((q) => q.join(",")).join(" ")} ${pts[pts.length - 1][0]},${H - B}"/>` : ""; }).join("")}
       ${series.map((s) => `<polyline fill="none" stroke="${color[s.cls]}" stroke-width="2.5" points="${s.vals.map((v, i) => `${x(i)},${y(v)}`).join(" ")}"/>
         ${s.vals.map((v, i) => `<circle cx="${x(i)}" cy="${y(v)}" r="${i === s.vals.length - 1 ? 5 : 3.5}" fill="${color[s.cls]}"><title>${esc(s.label)} · ${esc(xs[i])}: ${nf(v, dec)}</title></circle>`).join("")}`).join("")}
     </svg>${series.length > 1 ? `<div class="legend">${series.map((s) => `<span><i style="background:${color[s.cls]}"></i>${esc(s.label)}</span>`).join("")}</div>` : ""}`;

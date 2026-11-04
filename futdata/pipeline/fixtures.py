@@ -52,7 +52,8 @@ def main():
     df = df[df.Div.isin(comps)].copy()
     df["_d"] = pd.to_datetime(df.Date, dayfirst=True, errors="coerce").dt.strftime("%Y-%m-%d")
     key = list(zip(df.Div, df._d, df.HomeTeam.map(registry.resolve), df.AwayTeam.map(registry.resolve)))
-    new = df[[k not in played for k in key]].drop(columns="_d")
+    mask = pd.Series([k not in played for k in key], index=df.index, dtype=bool)   # empty-safe boolean mask
+    new = df[mask].drop(columns="_d")
 
     keep = ["Div", "Date", "Time", "HomeTeam", "AwayTeam"]
     if len(new):
